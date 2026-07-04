@@ -6,11 +6,11 @@ $userCt=$this->session->userdata('user_cate');
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-	<meta name="description" content="<?php echo config_item('company_name') ?>">
-	<meta name="author" content="<?php echo config_item('company_name') ?>">
-	<meta name="keywords" content="<?php echo config_item('company_name') ?>">
-	<title> <?php echo $title ?> | <?php echo config_item('company_name') ?> </title>
-	<link rel="icon" href="<?php echo base_url('assets/img/fbicon.ico');?>">
+	<meta name="description" content="<?php echo system_info('company_name') ?>">
+	<meta name="author" content="<?php echo system_info('company_name') ?>">
+	<meta name="keywords" content="<?php echo system_info('company_name') ?>">
+	<title> <?php echo $title ?> | <?php echo system_info('company_name') ?> </title>
+	<link rel="icon" href="<?php echo base_url(system_info('favicon'));?>">
 	<?php $this->load->view('employee/include/css') ?>
     <style>
 	.card .card-header .card-title::before {content:"";position:absolute;left:0px;padding:2px;height:30px;background:#6f42c1;}
@@ -659,7 +659,7 @@ $userCt=$this->session->userdata('user_cate');
 				<div class="container">
 					<div class="row row-sm">
 						<div class="col-md-12">
-							<span>Copyright © 2023 <a href="#"><?php echo config_item('company_name'); ?></a>. Designed by 
+							<span>Copyright © 2023 <a href="#"><?php echo system_info('company_name'); ?></a>. Designed by 
 							<a href="http://www.facebook.com/amisingh143"><?php echo config_item('dev_name'); ?></a> All rights reserved.</span>
 						</div>
 					</div>

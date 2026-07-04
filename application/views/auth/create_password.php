@@ -6,15 +6,15 @@
 
 		<meta charset="utf-8">
 		<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-        <meta name="description" content="<?php echo config_item('company_name') ?>">
-        <meta name="author" content="<?php echo config_item('company_name') ?>">
-        <meta name="keywords" content="<?php echo config_item('company_name') ?>">
+        <meta name="description" content="<?php echo system_info('company_name') ?>">
+        <meta name="author" content="<?php echo system_info('company_name') ?>">
+        <meta name="keywords" content="<?php echo system_info('company_name') ?>">
         
         <!-- TITLE -->
-        <title> <?php echo $title ?> | <?php echo config_item('company_name') ?>  </title>
+        <title> <?php echo $title ?> | <?php echo system_info('company_name') ?>  </title>
 
         <!-- FAVICON -->
-        <link rel="icon" href="<?php echo base_url('assets/img/fbicon.ico');?>">
+        <link rel="icon" href="<?php echo base_url(system_info('favicon'));?>">
 
         
 		<!-- BOOTSTRAP CSS -->
@@ -51,7 +51,7 @@
 						<div class="row row-sm">
 							<div class="col-lg-6 col-xl-5 d-none d-lg-block text-center bg-primary details">
 								<div class="mt-5 p-2 pos-absolute">
-									<img src="<?php echo base_url('assets/img/brand/logo-light.png');?>" class="header-brand-img mb-4" alt="logo">
+									<img src="<?php echo base_url(system_info('logo'));?>" class="header-brand-img mb-4" alt="logo">
 									<div class="clearfix"></div>
 									<img src="<?php echo base_url('assets/img/user.svg');?>" class="ht-100 mb-0" alt="user">
 									<h5 class="mt-4 text-white" id="actnAmiMark"><?php echo $title;?></h5>
@@ -62,8 +62,8 @@
 								<div class="main-container container-fluid">
 									<div class="row row-sm">
 										<div class="card-body mt-2 mb-2">
-											<img src="<?php echo base_url('assets/img/brand/logo-light.png');?>" class="d-lg-none header-brand-img text-start float-start mb-4 error-logo-light" alt="logo">
-											<img src="<?php echo base_url('assets/img/brand/logo.png');?>" class=" d-lg-none header-brand-img text-start float-start mb-4 error-logo" alt="logo">
+											<img src="<?php echo base_url(system_info('logo'));?>" class="d-lg-none header-brand-img text-start float-start mb-4 error-logo-light" alt="logo">
+											<img src="<?php echo base_url(system_info('logo'));?>" class=" d-lg-none header-brand-img text-start float-start mb-4 error-logo" alt="logo">
 											<div class="clearfix"></div>
 											<form>
 												<h5 class="text-start mb-2"><?php echo $title;?></h5>

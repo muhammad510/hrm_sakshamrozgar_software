@@ -3,11 +3,11 @@
 <head>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-<meta name="description" content="<?php echo config_item('company_name'); ?>">
-<meta name="author" content="<?php echo config_item('company_name'); ?>">
-<meta name="keywords" content="<?php echo config_item('company_name'); ?>">
+<meta name="description" content="<?php echo system_info('company_name'); ?>">
+<meta name="author" content="<?php echo system_info('company_name'); ?>">
+<meta name="keywords" content="<?php echo system_info('company_name'); ?>">
 <!-- TITLE -->
-<title><?php echo $title; ?>|<?php echo config_item('company_name'); ?></title>
+<title><?php echo $title; ?>|<?php echo system_info('company_name'); ?></title>
 <link rel="shortcut icon" href="<?php echo base_url() ?>media/images/<?php echo config_item('logo_sm')?>">
 <script src="<?php echo base_url('db/jquery.min.js');?>"></script>
 <style>
@@ -85,7 +85,7 @@ onLoad="generatePDF_2();"
         City-<span class="myFontBg" id="empCity">Anand, Gujarat</span> ,<br />
         PIN <span class="myFontBg" id="empZipCode">388620</span></p>
       <p> Dear <span class="empFlName myFontBg">Akash Nareshbhai Chunara</span>, </p>
-      <p> It is our pleasure to extend the following offer of employment to you on behalf of <span class="myFontBg">'.config_item('company_name').'</span>. </p>
+      <p> It is our pleasure to extend the following offer of employment to you on behalf of <span class="myFontBg">'.system_info('company_name').'</span>. </p>
       <p>further to the interview and discussions you have had with us. You are appointed to the position of "<span class="myFontBg empDesign">Designation</span>" at  "<span class="myFontBg empDepartment">Department Name</span>" and you are expected to join duty on <span class="myFontBg">01.01.2025</span> under the following terms and conditions: </p>
       <p>You will be on probation period (<strong>from your date of joining</strong>) for 6 months and on satisfactory completion of the probation period you will be entitled for the confirmation. </p>
       <p>This offer will be subject to the standard terms and conditions of employment by <strong>ASHUTOSH</strong> and also will be governed by the policies, rules and guidelines of the Company.</p>
@@ -111,7 +111,7 @@ onLoad="generatePDF_2();"
           <td colspan="2"  style="text-align:center"><span class="myFontBg">ANNEXURE I</span></td>
         </tr>
         <tr>
-          <td style="text-align:center" colspan="2"><span class="myFontBg">'.config_item('company_name').'</span></td>
+          <td style="text-align:center" colspan="2"><span class="myFontBg">'.system_info('company_name').'</span></td>
         </tr>
         <tr>
           <td style="width:40%">Employee No </td>
@@ -209,7 +209,7 @@ onLoad="generatePDF_2();"
       <p>We at <strong>Company Name</strong> would like to create an environment and culture committed to co-operation,quality and responsiveness that permits every activity.</p>
       <p>We take this oppertunity to wish you the very best in your tenure with tenure of contact with <strong>Company Name</strong>.</p>
       <p>Your sincerely,</p>
-      <p>  For <span class="myFontBg" style="text-transform:uppercase;">'.config_item('company_name').'</span> </p>
+      <p>  For <span class="myFontBg" style="text-transform:uppercase;">'.system_info('company_name').'</span> </p>
       <p>Name,<br/><br/><br/>
         Authorised Signatory</p>
         

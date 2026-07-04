@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-9">
               <address>
-              <div class="cmpniHd"><?php echo config_item('company_name'); ?></div>
+              <div class="cmpniHd"><?php echo system_info('company_name'); ?></div>
               <div class="text-center">
                 <!--<div class="cmpniReg">REG. OFFICE : </div>-->
                 <div class="cmpniAdr"> <?php echo config_item('address'); ?> </div>

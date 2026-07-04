@@ -9,9 +9,8 @@ class Login extends CI_Controller
 		parent::__construct();
 		$this->load->model('setting/login_model', 'login');
 		$this->load->library('form_validation');
-        $this->load->library('user_agent');
+		$this->load->library('user_agent');
 		error_reporting(0);
-
 	}
 
 	public function index()
@@ -30,7 +29,11 @@ class Login extends CI_Controller
 			}
 		}
 		if ($hasErrorMsg) {
-			$data = array('adClass' => 'tst_danger', 'msg' => $hasErrorMsg, 'icon' => '<i class="fe fe-settings bx-spin"></i>');
+			$data = array(
+				'adClass' => 'tst_danger',
+				'msg' => $hasErrorMsg,
+				'icon' => '<i class="fe fe-settings bx-spin"></i>'
+			);
 		} else {
 			if (filter_var($post['emailID'], FILTER_VALIDATE_EMAIL) === false) {
 				$msg = array('Please input valid user email id');
@@ -38,9 +41,9 @@ class Login extends CI_Controller
 			} else {
 				$result = $this->login->isValidate($post['emailID'], $post['usrPass']);
 				if ($result) {
-					
+
 					$system_configs = $this->login->system_config();
-					$this->setUserLog($result->id,$result->user_type);
+					$this->setUserLog($result->id, $result->user_type);
 					$sessiondata = array(
 						'_USR_AGENT' => $_SERVER['HTTP_USER_AGENT'],
 						'_USR_ACCEPT' => $_SERVER['HTTP_ACCEPT'],
@@ -50,7 +53,8 @@ class Login extends CI_Controller
 						'RPO_SESSION' => TRUE,
 						'SESSION_START_TIME' => time(),
 						'_USER_LAST_ACTIVITY' => time(),
-						'mim_id' => $result->id, 'memCode' => $result->memCode,
+						'mim_id' => $result->id,
+						'memCode' => $result->memCode,
 						'mi_name' => $result->surname . ' ' . $result->name,
 						'mi_email' => $result->email,
 						'mi_brID' => $result->branch_id,
@@ -73,47 +77,99 @@ class Login extends CI_Controller
 					exit;*/
 					$this->session->set_userdata($sessiondata);
 					//sleep(.5);
-					
-					$msg = array('Thank you have successfully logged in.');
-					if ($sessiondata['mim_id'] != '' && ($sessiondata['user_cate'] == 1)) 
-					{
-						$data=array('adClass'=>'tst_success','msg'=>$msg,'icon'=>'<i class="ti-check-box"></i>','target'=>base_url('staff/dashboard'));
-					}
-					 elseif ($sessiondata['mim_id'] != '' && ($sessiondata['user_cate'] == 2)) { 
-						$data = array('adClass' => 'tst_success', 'msg' => $msg, 'icon' => '<i class="ti-check-box"></i>', 'target' => base_url('staff/dashboard'));
-					}
-					 elseif ($sessiondata['mim_id'] != '' && ($sessiondata['user_cate'] == 3)) { 
-						$data = array('adClass' => 'tst_success', 'msg' => $msg, 'icon' => '<i class="ti-check-box"></i>', 'target' => base_url('staff/dashboard'));
-					}
-					 elseif($sessiondata['mim_id']!=''&&($sessiondata['user_cate'] == 4))
-					 {$data = array('adClass' => 'tst_success', 'msg' => $msg, 'icon' => '<i class="ti-check-box"></i>', 'target' => base_url('employee/dashboard'));}
-					  elseif($sessiondata['mim_id']!=''&&($sessiondata['user_cate'] ==5))
-					 {$data = array('adClass' => 'tst_success', 'msg' => $msg, 'icon' => '<i class="ti-check-box"></i>', 'target' => base_url('staff/dashboard'));}
 
+					$msg = array('Thank you have successfully logged in.');
+					if ($sessiondata['mim_id'] != '' && ($sessiondata['user_cate'] == 1)) {
+						$data = array(
+							'adClass' => 'tst_success',
+							'msg' => $msg,
+							'icon' => '<i class="ti-check-box"></i>',
+							'target' => base_url('staff/dashboard')
+						);
+					} elseif ($sessiondata['mim_id'] != '' && ($sessiondata['user_cate'] == 2)) {
+						$data = array(
+							'adClass' => 'tst_success',
+							'msg' => $msg,
+							'icon' => '<i class="ti-check-box"></i>',
+							'target' => base_url('staff/dashboard')
+						);
+					} elseif ($sessiondata['mim_id'] != '' && ($sessiondata['user_cate'] == 3)) {
+						$data = array(
+							'adClass' => 'tst_success',
+							'msg' => $msg,
+							'icon' => '<i class="ti-check-box"></i>',
+							'target' => base_url('staff/dashboard')
+						);
+					} elseif ($sessiondata['mim_id'] != '' && ($sessiondata['user_cate'] == 4)) {
+						$data = array(
+							'adClass' => 'tst_success',
+							'msg' => $msg,
+							'icon' => '<i class="ti-check-box"></i>',
+							'target' => base_url('employee/dashboard')
+						);
+					} elseif ($sessiondata['mim_id'] != '' && ($sessiondata['user_cate'] == 5)) {
+						$data = array(
+							'adClass' => 'tst_success',
+							'msg' => $msg,
+							'icon' => '<i class="ti-check-box"></i>',
+							'target' => base_url('staff/dashboard')
+						);
+					}
 				} else {
 					$msg = array('Invalid Login Details!! Please Check Username, Password');
-					$data = array('adClass' => 'tst_danger', 'msg' => $msg, 'icon' => '<i class="fe fe-settings bx-spin"></i>');
+					$data = array(
+						'adClass' => 'tst_danger',
+						'msg' => $msg,
+						'icon' => '<i class="fe fe-settings bx-spin"></i>'
+					);
 				}
-
 			}
-
 		}
 		echo json_encode($data);
 	}
 
 	function signout()
 	{
-		$sessiondata = array('_USR_AGENT' => '', '_USR_ACCEPT' => '', '_USR_ACCEPT_ENCODING' => '', '_USR_ACCEPT_LANG' => '', '_USR_LOOSE_IP' => '', 'RPO_SESSION' => false, 'SESSION_START_TIME' => '', '_USER_LAST_ACTIVITY' => '', 'mim_id' => '', 'mi_name' => '', 'mi_email' => '', 'user_cate' => '', 'mi_photo' => '', 'mi_company_name' => '', 'mi_company_address' => '', 'mi_company_url' => '', 'system_session_timeout' => '', 'system_inactive_timeout' => '', 'system_max_filesize' => '', 'system_allowed_file_types' => '', 'system_error_reporting' => '', 'is_logged_in' => false);
+		$sessiondata = array(
+			'_USR_AGENT' => '',
+			'_USR_ACCEPT' => '',
+			'_USR_ACCEPT_ENCODING' => '',
+			'_USR_ACCEPT_LANG' => '',
+			'_USR_LOOSE_IP' => '',
+			'RPO_SESSION' => false,
+			'SESSION_START_TIME' => '',
+			'_USER_LAST_ACTIVITY' => '',
+			'mim_id' => '',
+			'mi_name' => '',
+			'mi_email' => '',
+			'user_cate' => '',
+			'mi_photo' => '',
+			'mi_company_name' => '',
+			'mi_company_address' => '',
+			'mi_company_url' => '',
+			'system_session_timeout' => '',
+			'system_inactive_timeout' => '',
+			'system_max_filesize' => '',
+			'system_allowed_file_types' => '',
+			'system_error_reporting' => '',
+			'is_logged_in' => false
+		);
 		$this->session->sess_destroy($sessiondata);
 		redirect(base_url());
 	}
-    public function setUserLog($username, $role)
-    {
-        if($this->agent->is_browser()){$agent=$this->agent->browser().' '.$this->agent->version();} 
-		elseif ($this->agent->is_robot()){$agent = $this->agent->robot();}
-		elseif ($this->agent->is_mobile()){$agent = $this->agent->mobile();}else{$agent='Unidentified User Agent';}
-        $data = array('user_id'=>$username,'role'=>$role,'user_type'=>$role,'ipaddress'=>$this->input->ip_address(),'user_agent'=>$agent.", ".$this->agent->platform());
-        //echo"<pre>";print_r($data);die;
-        $this->login->log_add($data);
-    }	
+	public function setUserLog($username, $role)
+	{
+		if ($this->agent->is_browser()) {
+			$agent = $this->agent->browser() . ' ' . $this->agent->version();
+		} elseif ($this->agent->is_robot()) {
+			$agent = $this->agent->robot();
+		} elseif ($this->agent->is_mobile()) {
+			$agent = $this->agent->mobile();
+		} else {
+			$agent = 'Unidentified User Agent';
+		}
+		$data = array('user_id' => $username, 'role' => $role, 'user_type' => $role, 'ipaddress' => $this->input->ip_address(), 'user_agent' => $agent . ", " . $this->agent->platform());
+		//echo"<pre>";print_r($data);die;
+		$this->login->log_add($data);
+	}
 }

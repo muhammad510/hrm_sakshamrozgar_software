@@ -48,7 +48,7 @@
                   <div class="row row-sm amiCrd">  
                     <div class="col-md-6">
                            <div class="form-group"><p class="mg-b-10">Company Name</p>
-                            <input type="text" class="form-control" name="company_name" oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'').replace(/\s+/g,' ')" placeholder="Enter Your Company Name" value="<?php echo config_item('company_name') ?>">
+                            <input type="text" class="form-control" name="company_name" oninput="this.value=this.value.replace(/[^a-zA-Z\s]/g,'').replace(/\s+/g,' ')" placeholder="Enter Your Company Name" value="<?php echo system_info('company_name') ?>">
                         </div>
                         <div class="form-group"><p class="mg-b-10">Mobile Number</p>
                             <input type="text" class="form-control"  name="mobile" placeholder="Enter Your Mobile Number" oninput="this.value = this.value.toUpperCase().replace(/[^0-9]/g, '').replace(/(\  *?)\  */g, '$1')" maxlength="10" value="<?php echo config_item('mobile_number') ?>">

@@ -17,7 +17,7 @@
 							<div class="row row-sm">
 								<div class="col-lg-6 col-xl-5 d-none d-lg-block bg-primary details">
 									<div class="mt-4 pt-4 ps-3 ms-3 pe-3 pos-absolute">
-										<img src="<?php echo base_url('assets/img/brand/logo-light.png');?>" class="header-brand-img mb-4" alt="logo">
+										<img src="<?php echo base_url(system_info('logo'));?>" class="header-brand-img mb-4" alt="logo">
 										<div class="clearfix"></div>
 										<img src="<?php echo base_url('assets/img/user.svg');?>" class="ht-100 mb-0" alt="user">
 										<h5 class="mt-4 text-white">Unlock</h5>
@@ -28,8 +28,8 @@
 									<div class="main-container container-fluid">
 										<div class="row row-sm">
 											<div class="card-body main-profile-overview mt-3 mb-3">
-				<img src="<?php echo base_url('assets/img/brand/logo-light.png');?>" class="d-lg-none header-brand-img text-start float-start mb-4 error-logo-light" alt="logo">
-				<img src="<?php echo base_url('assets/img/brand/logo.png');?>" class=" d-lg-none header-brand-img text-start float-start mb-4 error-logo" alt="logo">
+				<img src="<?php echo base_url(system_info('logo'));?>" class="d-lg-none header-brand-img text-start float-start mb-4 error-logo-light" alt="logo">
+				<img src="<?php echo base_url(system_info('logo'));?>" class=" d-lg-none header-brand-img text-start float-start mb-4 error-logo" alt="logo">
 												<div class="clearfix"></div>
 												<h5 class="text-start mb-2">Lockscreen</h5>
 												<p class="mb-4 text-muted tx-13 ms-0 text-start">Unlock your screen by entering password</p>

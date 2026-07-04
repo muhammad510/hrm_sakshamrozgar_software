@@ -60,7 +60,7 @@
                              
                              
                         <p> Dear <span class="empFlName myFontBg">'.$where['empName'].'</span>, </p>
-                                          <p> It is our pleasure to extend the following offer of employment to you on behalf of <span class="myFontBg">'.config_item('company_name').'</span>. </p>
+                                          <p> It is our pleasure to extend the following offer of employment to you on behalf of <span class="myFontBg">'.system_info('company_name').'</span>. </p>
                                           <p>further to the interview and discussions you have had with us. You are appointed to the position of "<span class="myFontBg empDesign">'.$where['designation'].'</span>" at  "<span class="myFontBg empDepartment">'.$where['branchNm'].'</span>" and you are expected to join duty on <span class="myFontBg">'.$where['empJoining'].'</span> under the following terms and conditions: </p>
                                           <p>You will be on probation period (<strong>'.$where['empJoining'].'</strong>) for 6 months and on satisfactory completion of the probation period you will be entitled for the confirmation. </p>
                                           <p>This offer will be subject to the standard terms and conditions of employment by <strong>ASHUTOSH</strong> and also will be governed by the policies, rules and guidelines of the Company.</p>
@@ -85,7 +85,7 @@
 									       </p>
                                           <table width="600" border="0" cellpadding="0" cellspacing="0">
                                             <tr><td colspan="2" style="text-align:center;border:1px solid #e3e3e3;"><span class="myFontBg">ANNEXURE I</span></td></tr>
-                                            <tr><td style="text-align:center;border: 1px solid #e3e3e3;border-top: 0px;" colspan="2"><span class="myFontBg">'.config_item('company_name').'</span></td></tr>
+                                            <tr><td style="text-align:center;border: 1px solid #e3e3e3;border-top: 0px;" colspan="2"><span class="myFontBg">'.system_info('company_name').'</span></td></tr>
                                             <tr>
                                                  <td style="width:40%;border:1px solid #e3e3e3;border-top:0px;padding:2px 0px 2px 5px;font-size:12px;">Employee No </td>
                                                  <td style="border:1px solid #e3e3e3;border-top:0px;padding:2px 0px 2px 5px;font-size:12px; font-weight:700;border-left: 0px;">'.$where['empCode'].'</td>
@@ -175,14 +175,14 @@
                                                 <td style="width:40%;border:1px solid #e3e3e3;border-top:0px;padding:2px 0px 2px 5px;font-size:12px;">&nbsp;</td>
                                                 <td style="border:1px solid #e3e3e3;border-top:0px;padding:2px 0px 2px 5px;font-size:12px;text-transform:capitalize">'.$where['empCTCWord'].'</td></tr>
                                            </table>
-                                          <p style="padding-top:15px;font-size:12px;">We at <strong>'.config_item('company_name').'</strong> would like to create an environment and culture committed to co-operation,quality and responsiveness that permits every activity.</p>
+                                          <p style="padding-top:15px;font-size:12px;">We at <strong>'.system_info('company_name').'</strong> would like to create an environment and culture committed to co-operation,quality and responsiveness that permits every activity.</p>
                                           <p style="font-size:12px;">
 										  	We take this oppertunity to wish you the very best in your tenure with tenure of contact with 
-											<strong>'.config_item('company_name').'</strong>.
+											<strong>'.system_info('company_name').'</strong>.
 										  </p>
                               <div style="font-size:12px;">Your sincerely,<br />
                                 <span style="text-transform:capitalize; font-weight:600;font-size:12px;">'.$where['manager_name'].'</span><br>
-                                <span style="text-transform:capitalize; font-weight:600;font-size:12px;">'.config_item('company_name').'</span><br>
+                                <span style="text-transform:capitalize; font-weight:600;font-size:12px;">'.system_info('company_name').'</span><br>
                                 <span style="text-transform:capitalize; font-weight:600;font-size:12px;">'.$where['managerContact'].'</span></div>
                               <br />
                               <br />

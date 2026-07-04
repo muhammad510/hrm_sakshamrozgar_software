@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -55,28 +55,6 @@ $route['initiate-payment'] = 'PhonePeController/index';
 $route['create-payment'] = 'PhonePeController/createPayment';
 $route['payment-response'] = 'PhonePeController/paymentResponse';
 $route['payment-callback'] = 'PhonePeController/paymentResponse';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $route['default_controller'] = 'site';
 $route['404_override'] = '';

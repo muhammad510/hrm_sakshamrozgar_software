@@ -444,7 +444,7 @@ public function pay_slip($id)
 		
 $return=array('adClass'=>'success',
 		  'cmp_logo'=>base_url(config_item('logo_sm_light')),
-		  'cmp_name'=>config_item('company_name'),
+		  'cmp_name'=>system_info('company_name'),
 		  'cmp_addr'=>config_item('address'),
 		  'memName'=>$memName,
 		  'designation'=>$designation,

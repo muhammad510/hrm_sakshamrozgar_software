@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('session','database','form_validation');
+$autoload['libraries'] = array('session', 'database', 'form_validation');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','security');
+$autoload['helper'] = array('url', 'security', 'custome_helper');
 
 /*
 | -------------------------------------------------------------------
@@ -103,7 +103,7 @@ $autoload['helper'] = array('url','security');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('global','developer');
+$autoload['config'] = array('global', 'developer');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('setting/common_model'=>'common', 'employee/Common_model' => 'commons');
+$autoload['model'] = array('setting/common_model' => 'common', 'employee/Common_model' => 'commons', 'Db_model'=>'db_model');

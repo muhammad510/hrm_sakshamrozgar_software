@@ -125,7 +125,7 @@
                                     To,<br />
                                     The Branch Manager,<br/>
                                     <span class="emName"></span>,<br />
-                                    <?php echo config_item('company_name'); ?><br />
+                                    <?php echo system_info('company_name'); ?><br />
     							</div>
                                 <div style="padding-left:10px;margin: 20px auto 20px auto;">Dear Sir,</div>
                                 

@@ -3,11 +3,11 @@
 <head>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-<meta name="description" content="<?php echo config_item('company_name'); ?>">
-<meta name="author" content="<?php echo config_item('company_name'); ?>">
-<meta name="keywords" content="<?php echo config_item('company_name'); ?>">
-<title><?php echo $title; ?>|<?php echo config_item('company_name'); ?></title>
-<link rel="icon" href="<?php echo base_url('assets/img/fbicon.ico'); ?>">
+<meta name="description" content="<?php echo system_info('company_name'); ?>">
+<meta name="author" content="<?php echo system_info('company_name'); ?>">
+<meta name="keywords" content="<?php echo system_info('company_name'); ?>">
+<title><?php echo $title; ?>|<?php echo system_info('company_name'); ?></title>
+<link rel="icon" href="<?php echo base_url(system_info('favicon')); ?>">
 <link  id="style" href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/plugins/web-fonts/icons.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
         <div id="launch_date"></div>-->
       </div>
       <div class="text-center">
-      <div class="mrgSetAsBtm" >&copy; <?php echo date('Y');?> <a href="<?php echo base_url();?>" class="text-white-50"><?php echo config_item('company_name'); ?></a> All rights reserved.</div>
+      <div class="mrgSetAsBtm" >&copy; <?php echo date('Y');?> <a href="<?php echo base_url();?>" class="text-white-50"><?php echo system_info('company_name'); ?></a> All rights reserved.</div>
       </div>
     </div>
   </div>

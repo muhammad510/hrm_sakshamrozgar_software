@@ -156,13 +156,13 @@ $mailsec=
   </tr>
   <tr>
     <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#606060; padding:15px;font-family:Tahoma, sans-serif; line-height: 1.7;"><span style="font-size:1rem;font-weight: bold; color:#373730;"> Dear <span style="text-transform:capitalize; font-weight:600;">'.$where['name'].'</span></span>,<br>
-      I hope this email finds you well. This is to formally inform you that we have received your resignation request for the position of <span style="text-transform:capitalize; font-weight:600;">'.$where['your_position'].'</span> at <span style="text-transform:capitalize; font-weight:600;">'.config_item('company_name').'</span>, with your last working day being <span style="text-transform:capitalize; font-weight:600;">'.$where['last_working_day'].'</span>. <br>
+      I hope this email finds you well. This is to formally inform you that we have received your resignation request for the position of <span style="text-transform:capitalize; font-weight:600;">'.$where['your_position'].'</span> at <span style="text-transform:capitalize; font-weight:600;">'.system_info('company_name').'</span>, with your last working day being <span style="text-transform:capitalize; font-weight:600;">'.$where['last_working_day'].'</span>. <br>
       We sincerely appreciate your contributions to the company and would like to know your decision on accepting or rejecting this resignation request. Please click the respective button below to proceed. <br />
       We would be happy to discuss any concerns you may have regarding your decision.<br />
       <br />
       <div>Best regards,<br />
         <span style="text-transform:capitalize; font-weight:600;">'.$where['manager_name'].'</span><br>
-        <span style="text-transform:capitalize; font-weight:600;">'.config_item('company_name').'</span><br>
+        <span style="text-transform:capitalize; font-weight:600;">'.system_info('company_name').'</span><br>
         <span style="text-transform:capitalize; font-weight:600;">'.$where['managerContact'].'</span></div>
       <br />
       <br />
@@ -225,7 +225,7 @@ $mailsec=
                                   PIN   <span class="myFontBg" id="empZipCode">'.$where['zipcode'].'</span>
                              </p>
                              <span style="font-weight: bold; color:#373730;"> Dear <span style="text-transform:capitalize; font-weight:600;">'.$where['name'].'</span></span>,
-                             <p style="margin-top:-10px;"> It is our pleasure to extend the following offer of employment to you on behalf of <span class="myFontBg">'.config_item('company_name').'</span>. </p>
+                             <p style="margin-top:-10px;"> It is our pleasure to extend the following offer of employment to you on behalf of <span class="myFontBg">'.system_info('company_name').'</span>. </p>
                                           <p>further to the interview and discussions you have had with us. You are appointed to the position of "<span class="myFontBg empDesign">'.$where['designation'].'</span>" at  "<span class="myFontBg empDepartment">'.$where['branchNm'].'</span>" and you are expected to join duty on <span class="myFontBg">'.$where['empJoining'].'</span> under the following terms and conditions: </p>
                                           <p>You will be on probation period (<strong>'.$where['empJoining'].'</strong>) for 6 months and on satisfactory completion of the probation period you will be entitled for the confirmation. </p>
                                           <p>This offer will be subject to the standard terms and conditions of employment by <strong>ASHUTOSH</strong> and also will be governed by the policies, rules and guidelines of the Company.</p>
@@ -250,7 +250,7 @@ $mailsec=
 					          </p>
                                           <table width="600" border="0" cellpadding="0" cellspacing="0">
                                             <tr><td colspan="2" style="text-align:center;border:1px solid #e3e3e3;"><span class="myFontBg">ANNEXURE I</span></td></tr>
-                                            <tr><td style="text-align:center;border: 1px solid #e3e3e3;border-top: 0px;" colspan="2"><span class="myFontBg">'.config_item('company_name').'</span></td></tr>
+                                            <tr><td style="text-align:center;border: 1px solid #e3e3e3;border-top: 0px;" colspan="2"><span class="myFontBg">'.system_info('company_name').'</span></td></tr>
                                             <tr>
                                                  <td style="width:40%;border:1px solid #e3e3e3;border-top:0px;padding:2px 0px 2px 5px;font-size:12px;">Employee No </td>
                                                  <td style="border:1px solid #e3e3e3;border-top:0px;padding:2px 0px 2px 5px;font-size:12px; font-weight:700;border-left: 0px;">'.$where['empCode'].'</td>
@@ -340,14 +340,14 @@ $mailsec=
                                                 <td style="width:40%;border:1px solid #e3e3e3;border-top:0px;padding:2px 0px 2px 5px;font-size:12px;">&nbsp;</td>
                                                 <td style="border:1px solid #e3e3e3;border-top:0px;padding:2px 0px 2px 5px;font-size:12px;text-transform:capitalize">'.$where['empCTCWord'].'</td></tr>
                               </table>
-                                          <p style="padding-top:15px;font-size:12px;">We at <strong>'.config_item('company_name').'</strong> would like to create an environment and culture committed to co-operation,quality and responsiveness that permits every activity.</p>
+                                          <p style="padding-top:15px;font-size:12px;">We at <strong>'.system_info('company_name').'</strong> would like to create an environment and culture committed to co-operation,quality and responsiveness that permits every activity.</p>
                                           <p style="font-size:12px;">
 										  	We take this oppertunity to wish you the very best in your tenure with tenure of contact with 
-											<strong>'.config_item('company_name').'</strong>.
+											<strong>'.system_info('company_name').'</strong>.
 										  </p>
                               <div style="font-size:12px;">Your sincerely,<br />
                                 <span style="text-transform:capitalize; font-weight:600;font-size:12px;">'.$where['manager_name'].'</span><br>
-                                <span style="text-transform:capitalize; font-weight:600;font-size:12px;">'.config_item('company_name').'</span><br>
+                                <span style="text-transform:capitalize; font-weight:600;font-size:12px;">'.system_info('company_name').'</span><br>
                                 <span style="text-transform:capitalize; font-weight:600;font-size:12px;">'.$where['managerContact'].'</span></div>
                               <br />
                               <br />
@@ -400,14 +400,14 @@ $mailsec=
   </tr>
   <tr>
     <td style="font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#606060; padding:15px;font-family:Tahoma, sans-serif; line-height: 1.7;"><span style="font-size:1rem;font-weight: bold; color:#373730;"> Dear <span style="text-transform:capitalize; font-weight:600;">'.$where['name'].'</span></span>,<br>
-     We are pleased to inform you that you have been promoted to the position of <span style="text-transform:capitalize; font-weight:600;">'.$where['your_position'].'</span> at <span style="text-transform:capitalize; font-weight:600;">'.config_item('company_name').'</span>, with your effective working day from <span style="text-transform:capitalize; font-weight:600;">'.$where['start_working'].'</span>. <br>
+     We are pleased to inform you that you have been promoted to the position of <span style="text-transform:capitalize; font-weight:600;">'.$where['your_position'].'</span> at <span style="text-transform:capitalize; font-weight:600;">'.system_info('company_name').'</span>, with your effective working day from <span style="text-transform:capitalize; font-weight:600;">'.$where['start_working'].'</span>. <br>
      This promotion comes as a recognition of your consistent hard work, dedication, and the outstanding contributions you have made to the '.$where['department'].'. <br />
       In your new role, we are confident that you will continue to exceed expectations and help drive our team towards greater success. Your updated compensation and responsibilities will be discussed with you by the HR team shortly.<br />
       Please accept our heartfelt congratulations on this well-deserved promotion!.<br>
       <br />
       <div>Best regards,<br />
         <span style="text-transform:capitalize; font-weight:600;">'.$where['manager_name'].'</span><br>
-        <span style="text-transform:capitalize; font-weight:600;">'.config_item('company_name').'</span><br>
+        <span style="text-transform:capitalize; font-weight:600;">'.system_info('company_name').'</span><br>
         <span style="text-transform:capitalize; font-weight:600;">'.$where['managerContact'].'</span></div>
       <br />
       <br />
@@ -469,13 +469,13 @@ $mailsec=
       <ul style="margin-top: 10px; margin-bottom: 10px;">
         <li>' . $where['warning_message'] . '</li>
       </ul>
-      Please be advised that this behavior violates the attendance policies of <span style="text-transform:capitalize; font-weight:600;">' . config_item('company_name') . '</span>. Continued non-compliance may result in further disciplinary action, up to and including termination of employment.
+      Please be advised that this behavior violates the attendance policies of <span style="text-transform:capitalize; font-weight:600;">' . system_info('company_name') . '</span>. Continued non-compliance may result in further disciplinary action, up to and including termination of employment.
       <br><br>
       We expect immediate and sustained improvement in your attendance. If there are any personal or professional challenges affecting your punctuality or availability, we encourage you to speak with your manager or HR representative.
       <br><br>
       <div>Best regards,<br />
         <span style="text-transform:capitalize; font-weight:600;">' . $where['manager_name'] . '</span><br>
-        <span style="text-transform:capitalize; font-weight:600;">' . config_item('company_name') . '</span><br>
+        <span style="text-transform:capitalize; font-weight:600;">' . system_info('company_name') . '</span><br>
         <span style="text-transform:capitalize; font-weight:600;">' . $where['managerContact'] . '</span>
       </div>
       <br /><br />

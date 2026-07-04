@@ -1,0 +1,1 @@
+ALTER TABLE `system_config` ADD `logo` TEXT NULL AFTER `error_reporting`, ADD `favicon` TEXT NULL AFTER `logo`, ADD `phone` TEXT NULL AFTER `favicon`, ADD `email` TEXT NULL AFTER `phone`, ADD `youtube` TEXT NULL AFTER `email`, ADD `facebook` TEXT NULL AFTER `youtube`;

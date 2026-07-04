@@ -1,98 +1,98 @@
-<?php 
-$name=$this->session->userdata('mi_name');
-$loggedPic=$this->session->userdata('mi_image');
-$role=$this->session->userdata('mi_role');
+<?php
+$name = $this->session->userdata('mi_name');
+$loggedPic = $this->session->userdata('mi_image');
+$role = $this->session->userdata('mi_role');
 ?>
-    <!-- HEADER -->
-		<div class="main-header side-header sticky">
-				<div class="main-container container-fluid">
-					<div class="main-header-left">
-						<a class="main-header-menu-icon" href="javascript:void(0);" id="mainSidebarToggle"><span></span></a>
-						<div class="hor-logo">
-							<a class="main-logo" href="<?php echo base_url();?>">
-								<img src="<?php echo base_url('assets/img/brand/logo.png');?>" class="header-brand-img desktop-logo" alt="logo">
-								<img src="<?php echo base_url('assets/img/brand/logo-light.png');?>" class="header-brand-img desktop-logo-dark" alt="logo">
+<!-- HEADER -->
+<div class="main-header side-header sticky">
+	<div class="main-container container-fluid">
+		<div class="main-header-left">
+			<a class="main-header-menu-icon" href="javascript:void(0);" id="mainSidebarToggle"><span></span></a>
+			<div class="hor-logo">
+				<a class="main-logo" href="<?php echo base_url(); ?>">
+					<img src="<?php echo base_url(system_info('logo')); ?>" class="header-brand-img desktop-logo" alt="logo">
+					<img src="<?php echo base_url(system_info('logo')); ?>" class="header-brand-img desktop-logo-dark" alt="logo">
+				</a>
+			</div>
+		</div>
+		<div class="main-header-right">
+			<button class="navbar-toggler navresponsive-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fe fe-more-vertical header-icons navbar-toggler-icon"></i>
+			</button><!-- Navresponsive closed -->
+			<div
+				class="navbar navbar-expand-lg  nav nav-item  navbar-nav-right responsive-navbar navbar-dark  ">
+				<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+					<div class="d-flex order-lg-2 ms-auto">
+						<!-- Search -->
+						<div class="dropdown header-search">
+							<a class="nav-link icon header-search">
+								<i class="fe fe-search header-icons"></i>
+							</a>
+							<div class="dropdown-menu">
+								<div class="main-form-search p-2">
+									<div class="input-group">
+										<div class="input-group-btn search-panel">
+											<select class="form-control select2">
+												<option label="All categories">
+												</option>
+												<option value="IT Projects">
+													IT Projects
+												</option>
+												<option value="Business Case">
+													Business Case
+												</option>
+												<option value="Microsoft Project">
+													Microsoft Project
+												</option>
+												<option value="Risk Management">
+													Risk Management
+												</option>
+												<option value="Team Building">
+													Team Building
+												</option>
+											</select>
+										</div>
+										<input type="search" class="form-control"
+											placeholder="Search for anything...">
+										<button class="btn search-btn"><svg xmlns="http://www.w3.org/2000/svg"
+												width="20" height="20" viewBox="0 0 24 24" fill="none"
+												stroke="currentColor" stroke-width="2" stroke-linecap="round"
+												stroke-linejoin="round" class="feather feather-search">
+												<circle cx="11" cy="11" r="8"></circle>
+												<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+											</svg></button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Search -->
+						<!-- Theme-Layout -->
+						<div class="dropdown">
+							<span class="nav-link icon amoliActn" id="syncAttendance" data-id="<?php echo base_url('admin/synchronise'); ?>" title="Live Attendance">
+								<i class="si si-refresh header-icons"></i>
+							</span>
+						</div>
+
+
+
+
+
+
+						<div class="dropdown d-flex main-header-theme">
+							<a class="nav-link icon layout-setting">
+								<span class="dark-layout" title="Light Mode">
+									<i class="fe fe-sun header-icons"></i>
+								</span>
+								<span class="light-layout" title="Dark Mode">
+									<i class="fe fe-moon header-icons"></i>
+								</span>
 							</a>
 						</div>
-					</div>
-					<div class="main-header-right">
-						<button class="navbar-toggler navresponsive-toggler" type="button" data-bs-toggle="collapse"
-							data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
-							aria-expanded="false" aria-label="Toggle navigation">
-							<i class="fe fe-more-vertical header-icons navbar-toggler-icon"></i>
-						</button><!-- Navresponsive closed -->
-						<div
-							class="navbar navbar-expand-lg  nav nav-item  navbar-nav-right responsive-navbar navbar-dark  ">
-							<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-								<div class="d-flex order-lg-2 ms-auto">
-									<!-- Search -->
-									<div class="dropdown header-search">
-										<a class="nav-link icon header-search">
-											<i class="fe fe-search header-icons"></i>
-										</a>
-										<div class="dropdown-menu">
-											<div class="main-form-search p-2">
-												<div class="input-group">
-													<div class="input-group-btn search-panel">
-														<select class="form-control select2">
-															<option label="All categories">
-															</option>
-															<option value="IT Projects">
-																IT Projects
-															</option>
-															<option value="Business Case">
-																Business Case
-															</option>
-															<option value="Microsoft Project">
-																Microsoft Project
-															</option>
-															<option value="Risk Management">
-																Risk Management
-															</option>
-															<option value="Team Building">
-																Team Building
-															</option>
-														</select>
-													</div>
-													<input type="search" class="form-control"
-														placeholder="Search for anything...">
-													<button class="btn search-btn"><svg xmlns="http://www.w3.org/2000/svg"
-															width="20" height="20" viewBox="0 0 24 24" fill="none"
-															stroke="currentColor" stroke-width="2" stroke-linecap="round"
-															stroke-linejoin="round" class="feather feather-search">
-															<circle cx="11" cy="11" r="8"></circle>
-															<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-														</svg></button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- Search -->
-									<!-- Theme-Layout -->
-                                    <div class="dropdown">
-										<span class="nav-link icon amoliActn" id="syncAttendance" data-id="<?php echo base_url('admin/synchronise');?>" title="Live Attendance">
-											<i class="si si-refresh header-icons"></i>
-										</span>
-									</div>
-                                     
-                                    
-
-                                    
-                                    
-                                    
-									<div class="dropdown d-flex main-header-theme">
-										<a class="nav-link icon layout-setting">
-											<span class="dark-layout" title="Light Mode">
-												<i class="fe fe-sun header-icons"></i>
-											</span>
-											<span class="light-layout" title="Dark Mode">
-												<i class="fe fe-moon header-icons"></i>
-											</span>
-										</a>
-									</div>
-									<!-- Theme-Layout -->
-									<!-- country -->
-									<!--<div class="dropdown main-header-notification flag-dropdown">
+						<!-- Theme-Layout -->
+						<!-- country -->
+						<!--<div class="dropdown main-header-notification flag-dropdown">
 										<a class="nav-link icon country-Flag">
 											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 												<circle cx="256" cy="256" r="256" fill="#f0f0f0" />
@@ -111,52 +111,52 @@ $role=$this->session->userdata('mi_role');
 										<div class="dropdown-menu">
 											<a href="javascript:void(0);" class="dropdown-item d-flex ">
 												<span class="avatar  me-3 align-self-center bg-transparent"><img
-														src="<?php echo base_url();?>assets/img/flags/french_flag.jpg" alt="img"></span>
+														src="<?php echo base_url(); ?>assets/img/flags/french_flag.jpg" alt="img"></span>
 												<div class="d-flex">
 													<span class="mt-2">French</span>
 												</div>
 											</a>
 											<a href="javascript:void(0);" class="dropdown-item d-flex">
 												<span class="avatar  me-3 align-self-center bg-transparent"><img
-														src="<?php echo base_url();?>assets/img/flags/germany_flag.jpg" alt="img"></span>
+														src="<?php echo base_url(); ?>assets/img/flags/germany_flag.jpg" alt="img"></span>
 												<div class="d-flex">
 													<span class="mt-2">Germany</span>
 												</div>
 											</a>
 											<a href="javascript:void(0);" class="dropdown-item d-flex">
 												<span class="avatar me-3 align-self-center bg-transparent"><img
-														src="<?php echo base_url();?>assets/img/flags/italy_flag.jpg" alt="img"></span>
+														src="<?php echo base_url(); ?>assets/img/flags/italy_flag.jpg" alt="img"></span>
 												<div class="d-flex">
 													<span class="mt-2">Italy</span>
 												</div>
 											</a>
 											<a href="javascript:void(0);" class="dropdown-item d-flex">
 												<span class="avatar me-3 align-self-center bg-transparent"><img
-														src="<?php echo base_url();?>assets/img/flags/russia_flag.jpg" alt="img"></span>
+														src="<?php echo base_url(); ?>assets/img/flags/russia_flag.jpg" alt="img"></span>
 												<div class="d-flex">
 													<span class="mt-2">Russia</span>
 												</div>
 											</a>
 											<a href="javascript:void(0);" class="dropdown-item d-flex">
 												<span class="avatar  me-3 align-self-center bg-transparent"><img
-														src="<?php echo base_url();?>assets/img/flags/spain_flag.jpg" alt="img"></span>
+														src="<?php echo base_url(); ?>assets/img/flags/spain_flag.jpg" alt="img"></span>
 												<div class="d-flex">
 													<span class="mt-2">spain</span>
 												</div>
 											</a>
 										</div>
 									</div>-->
-									<!-- country -->
-									<!-- Full screen -->
-									<div class="dropdown ">
-										<a class="nav-link icon full-screen-link">
-											<i class="fe fe-maximize fullscreen-button fullscreen header-icons"  title="Full Screen"></i>
-											<i class="fe fe-minimize fullscreen-button exit-fullscreen header-icons" title="Exit Full Screen"></i>
-										</a>
-									</div>
-									<!-- Full screen -->
-									<!-- Notification -->
-									<!--<div class="dropdown main-header-notification">
+						<!-- country -->
+						<!-- Full screen -->
+						<div class="dropdown ">
+							<a class="nav-link icon full-screen-link">
+								<i class="fe fe-maximize fullscreen-button fullscreen header-icons" title="Full Screen"></i>
+								<i class="fe fe-minimize fullscreen-button exit-fullscreen header-icons" title="Exit Full Screen"></i>
+							</a>
+						</div>
+						<!-- Full screen -->
+						<!-- Notification -->
+						<!--<div class="dropdown main-header-notification">
 										<a class="nav-link icon" href="javascript:void(0);">
 											<i class="fe fe-bell header-icons" title="Notifications"></i>
 											<span class="badge bg-danger nav-link-badge">4</span>
@@ -169,7 +169,7 @@ $role=$this->session->userdata('mi_role');
 											<div class="main-notification-list">
 												<div class="media new">
 													<div class="main-img-user online"><img alt="avatar"
-															src="<?php echo base_url();?>assets/img/users/5.jpg"></div>
+															src="<?php echo base_url(); ?>assets/img/users/5.jpg"></div>
 													<div class="media-body">
 														<p>Congratulate <strong>Olivia James</strong> for New template
 															start</p>
@@ -178,7 +178,7 @@ $role=$this->session->userdata('mi_role');
 												</div>
 												<div class="media">
 													<div class="main-img-user"><img alt="avatar"
-															src="<?php echo base_url();?>assets/img/users/2.jpg">
+															src="<?php echo base_url(); ?>assets/img/users/2.jpg">
 													</div>
 													<div class="media-body">
 														<p><strong>Joshua Gray</strong> New Message Received</p>
@@ -188,7 +188,7 @@ $role=$this->session->userdata('mi_role');
 												</div>
 												<div class="media">
 													<div class="main-img-user online"><img alt="avatar"
-															src="<?php echo base_url();?>assets/img/users/3.jpg"></div>
+															src="<?php echo base_url(); ?>assets/img/users/3.jpg"></div>
 													<div class="media-body">
 														<p><strong>Elizabeth Lewis</strong> added new schedule realease
 														</p><span>Oct
@@ -201,139 +201,131 @@ $role=$this->session->userdata('mi_role');
 											</div>
 										</div>
 									</div>-->
-									<!-- Notification -->
-									<!-- Messages -->
-									<!--<div class="main-header-notification">
+						<!-- Notification -->
+						<!-- Messages -->
+						<!--<div class="main-header-notification">
 										<a class="nav-link icon" href="chat.html"  title="Chat">
 											<i class="fe fe-message-square header-icons"></i>
 											<span class="badge bg-success nav-link-badge">6</span>
 										</a>
 									</div>-->
-									<!-- Messages -->
-									<!-- Profile -->
-									<div class="dropdown main-profile-menu">
-										<a class="d-flex" href="javascript:void(0);">
-											<span class="main-img-user"><img alt="avatar" src="<?php echo base_url($loggedPic);?>"></span>
-										</a>
-										<div class="dropdown-menu">
-											<div class="header-navheading">
-												<h6 class="main-notification-title"><?php echo $name;?></h6>
-												<p class="main-notification-text"><?php echo $role;?></p>
-											</div>
-											<a class="dropdown-item border-top" href="<?php echo base_url('staff/profile');?>">
-												<i class="fe fe-user"></i> My Profile
-											</a>
-											<!--<a class="dropdown-item" href="profile.html"><i class="fe fe-edit"></i> Edit Profile</a>
+						<!-- Messages -->
+						<!-- Profile -->
+						<div class="dropdown main-profile-menu">
+							<a class="d-flex" href="javascript:void(0);">
+								<span class="main-img-user"><img alt="avatar" src="<?php echo base_url($loggedPic); ?>"></span>
+							</a>
+							<div class="dropdown-menu">
+								<div class="header-navheading">
+									<h6 class="main-notification-title"><?php echo $name; ?></h6>
+									<p class="main-notification-text"><?php echo $role; ?></p>
+								</div>
+								<a class="dropdown-item border-top" href="<?php echo base_url('staff/profile'); ?>">
+									<i class="fe fe-user"></i> My Profile
+								</a>
+								<!--<a class="dropdown-item" href="profile.html"><i class="fe fe-edit"></i> Edit Profile</a>
 											<a class="dropdown-item" href="profile.html"><i class="fe fe-settings"></i> Account Settings</a>
 											<a class="dropdown-item" href="profile.html"><i class="fe fe-settings"></i> Support</a>-->
-											<a class="dropdown-item" data-bs-target="#resetPassword" data-bs-toggle="modal" href="javascript:void(0);">
-												<i class="fe fe-edit"></i> Change password
-											</a>
-											<a class="dropdown-item" href="<?php echo base_url('auth/login/signout');?>">
-												<i class="fe fe-power"></i> Sign Out
-											</a>
-										</div>
-									</div>
-									<!-- Profile -->
-									<!-- Sidebar -->
-									<!--<div class="dropdown  header-settings">
+								<a class="dropdown-item" data-bs-target="#resetPassword" data-bs-toggle="modal" href="javascript:void(0);">
+									<i class="fe fe-edit"></i> Change password
+								</a>
+								<a class="dropdown-item" href="<?php echo base_url('auth/login/signout'); ?>">
+									<i class="fe fe-power"></i> Sign Out
+								</a>
+							</div>
+						</div>
+						<!-- Profile -->
+						<!-- Sidebar -->
+						<!--<div class="dropdown  header-settings">
 										<a href="javascript:void(0);" class="nav-link icon" data-bs-toggle="sidebar-right"
 											data-bs-target=".sidebar-right">
 											<i class="fe fe-align-right header-icons"></i>
 										</a>
 									</div>-->
-									<!-- Sidebar -->
-								</div>
-							</div>
-						</div>
-						
-						<?php if($this->session->userdata('user_cate')=='dev'){?>
-						<div class="d-flex header-setting-icon demo-icon fa-spin">
-							<a class="nav-link icon" href="javascript:void(0);">
-								<i class="fe fe-settings settings-icon "></i>
-							</a>
-						</div>
-						<?php }?>
+						<!-- Sidebar -->
 					</div>
 				</div>
 			</div>
-    <!-- END HEADER -->
-	
-	
-	
-	
-	
-	
-	
+
+			<?php if ($this->session->userdata('user_cate') == 'dev') { ?>
+				<div class="d-flex header-setting-icon demo-icon fa-spin">
+					<a class="nav-link icon" href="javascript:void(0);">
+						<i class="fe fe-settings settings-icon "></i>
+					</a>
+				</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>
+<!-- END HEADER -->
+
+
+
+
+
+
+
 <!---------------------- Reset Passsword Modal Start---------------------->
 
 <div class="modal" id="resetPassword">
-<div class="modal-dialog" role="document">
-	<div class="modal-content modal-content-demo">
-		<div class="modal-header">
-			<h6 class="modal-title">Change Password</h6>
-            	<button aria-label="Close" class="btn-close miClose" data-bs-dismiss="modal" type="button">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content modal-content-demo">
+			<div class="modal-header">
+				<h6 class="modal-title">Change Password</h6>
+				<button aria-label="Close" class="btn-close miClose" data-bs-dismiss="modal" type="button">
 					<i class="fe fe-x"></i><!--<span aria-hidden="true">X</span>-->
-			</button>
-		</div>
-	<form id="changePassword" method="post" accept-charset="utf-8" enctype="multipart/form-data">	
-        <div class="modal-body">
-			<div class="row  row-sm">      
+				</button>
+			</div>
+			<form id="changePassword" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+				<div class="modal-body">
+					<div class="row  row-sm">
 
-               <div id="miRsltMessage"></div>
-                <div class="col-md-12">
-                    <label>Previous Password:</label>
-                    <div class="errCls" id="ppass">Please input prevois password</div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="si si-key"></i></span>
-                        </div>
-                       <input type="password" class="form-control" name="prePass" id="prePass">
-                    </div>
-                </div>            
-                <div class="col-md-12">
-                    <label>New Password:</label><div class="errCls" id="nwPass">Please input prevois password</div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="si si-settings"></i></span>
-                        </div>
-                      <input type="password" class="form-control" name="newPass" id="newPass">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <label>Confirm Password:</label><div class="errCls" id="cnf_pass">Please input prevois password</div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="si si-settings"></i></span>
-                        </div>
-                         <input type="password" class="form-control" name="cnfPass" id="cnfPass">
-                    </div>
-                </div>    
-            </div>
-        </div>
-		<div class="modal-footer">
-			
-			<button class="btn ripple btn-outline-dark" data-bs-dismiss="modal" type="button"><i class="fa fa-arrow-left"></i> Back</button>
-            <button id="svChngePassword" class="btn ripple btn-outline-success" type="submit" ><i class="ti-save"></i> Save changes</button>
+						<div id="miRsltMessage"></div>
+						<div class="col-md-12">
+							<label>Previous Password:</label>
+							<div class="errCls" id="ppass">Please input prevois password</div>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="si si-key"></i></span>
+								</div>
+								<input type="password" class="form-control" name="prePass" id="prePass">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<label>New Password:</label>
+							<div class="errCls" id="nwPass">Please input prevois password</div>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="si si-settings"></i></span>
+								</div>
+								<input type="password" class="form-control" name="newPass" id="newPass">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<label>Confirm Password:</label>
+							<div class="errCls" id="cnf_pass">Please input prevois password</div>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="si si-settings"></i></span>
+								</div>
+								<input type="password" class="form-control" name="cnfPass" id="cnfPass">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+
+					<button class="btn ripple btn-outline-dark" data-bs-dismiss="modal" type="button"><i class="fa fa-arrow-left"></i> Back</button>
+					<button id="svChngePassword" class="btn ripple btn-outline-success" type="submit"><i class="ti-save"></i> Save changes</button>
+				</div>
+			</form>
 		</div>
-    </form>
 	</div>
-</div>
 </div>
 
 <!---------------------- Reset Passsword Modal End---------------------->
 <style>
-.prTm{ color:#00acac !important;}
+	.prTm {
+		color: #00acac !important;
+	}
 </style>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

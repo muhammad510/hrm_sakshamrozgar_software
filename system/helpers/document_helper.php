@@ -64,7 +64,7 @@ $printPage='<div class="col-md-12">
 				<div class="letter-content wrningLtr">
 				  <p>Dear <strong>'.$where['empName'].'</strong>,</p>
 				  <p>This letter is to formally notify you that your recent behavior/performance has been found to be unsatisfactory and against the policies of the company. Specifically, <strong>'.$where['reason'].'</strong>.</p>
-				  <p>On <strong>'.date('d F Y').'</strong>, you have <strong>'.$where['reason'].'</strong>. This is a serious concern because it [mention the consequences of their actions on the team or <strong>'.config_item('company_name').'</strong>.</p>
+				  <p>On <strong>'.date('d F Y').'</strong>, you have <strong>'.$where['reason'].'</strong>. This is a serious concern because it [mention the consequences of their actions on the team or <strong>'.system_info('company_name').'</strong>.</p>
 				  <p>We have already discussed this matter with you on [mention previous discussions, if any] and have provided you with an opportunity to improve. However, the situation has not improved, and it is now affecting the overall work environment.</p>
 				  <p>This letter serves as an official warning. We expect you to [mention the expected behavior or improvement], and any further violation may lead to [mention possible consequences, like further disciplinary action or termination].</p>
 				  <p>We sincerely hope that you will take this warning seriously and make necessary improvements to avoid any further consequences.</p>
@@ -74,7 +74,7 @@ $printPage='<div class="col-md-12">
 					<p>Regards,</p>
 					<p><strong>'.$where['managerNm'].'</strong></p>
 					<p><em>Reporting Manager</em></p>
-					<p>'.config_item('company_name').' | '.config_item('address').' | '.config_item('mobile_number').'</p>
+					<p>'.system_info('company_name').' | '.config_item('address').' | '.config_item('mobile_number').'</p>
 				  </div>
 				</div>
 			  </div>
@@ -104,7 +104,7 @@ $printPage='<div class="offrHdrImg">
 					City-<span class="myFontBg" id="empCity">'.$where['distState'].'</span> ,<br />
 					PIN <span class="myFontBg" id="empZipCode">'.$where['zipcode'].'</span></p>
 				  <p> Dear <span class="empFlName myFontBg">'.$where['empName'].'</span>, </p>
-				  <p> It is our pleasure to extend the following offer of employment to you on behalf of <span class="myFontBg">'.config_item('company_name').'</span>. </p>
+				  <p> It is our pleasure to extend the following offer of employment to you on behalf of <span class="myFontBg">'.system_info('company_name').'</span>. </p>
 				  <p>further to the interview and discussions you have had with us. You are appointed to the position of "<span class="myFontBg empDesign">'.$where['designation'].'</span>" at  "<span class="myFontBg empDepartment">'.$where['branchNm'].'</span>" and you are expected to join duty on <span class="myFontBg">'.$where['empJoining'].'</span> under the following terms and conditions: </p>
 				  <p>You will be on probation period (<strong>'.$where['empJoining'].'</strong>) for 6 months and on satisfactory completion of the probation period you will be entitled for the confirmation. </p>
 				  <p>This offer will be subject to the standard terms and conditions of employment by <strong>ASHUTOSH</strong> and also will be governed by the policies, rules and guidelines of the Company.</p>
@@ -127,7 +127,7 @@ $printPage='<div class="offrHdrImg">
 				  <p style="clear: both;">Encl: <span class="myFontBg"> 1) Service Agreement </span></p>
 				  <table id="payFormat">
 					<tr><td colspan="2"  style="text-align:center"><span class="myFontBg">ANNEXURE I</span></td></tr>
-					<tr><td style="text-align:center" colspan="2"><span class="myFontBg">'.config_item('company_name').'</span></td></tr>
+					<tr><td style="text-align:center" colspan="2"><span class="myFontBg">'.system_info('company_name').'</span></td></tr>
 					<tr><td style="width:40%">Employee No </td><td><span class="myFontBg">'.$where['empCode'].'</span></td></tr>
 					<tr><td style="width:40%">Name </td><td><span class="myFontBg" style="text-transform:uppercase;">'.$where['empName'].'</span></td></tr>
 					<tr><td style="width:40%">Designation </td><td><span class="myFontBg" style="text-transform:uppercase;">'.$where['designation'].'</span></td></tr>
@@ -154,10 +154,10 @@ $printPage='<div class="offrHdrImg">
 					<tr><td style="width:40%">CTC </td><td><span class="myFontBg">'.$where['empCTC'].'</span></td></tr>
 					<tr><td style="width:40%">&nbsp;</td><td><span class="myFontBg" style="text-transform:capitalize">'.$where['empCTCWord'].'</span></td></tr>
 				   </table>
-				  <p style="padding-top: 15px;">We at <strong>'.config_item('company_name').'</strong> would like to create an environment and culture committed to co-operation,quality and responsiveness that permits every activity.</p>
-				  <p>We take this oppertunity to wish you the very best in your tenure with tenure of contact with <strong>'.config_item('company_name').'</strong>.</p>
+				  <p style="padding-top: 15px;">We at <strong>'.system_info('company_name').'</strong> would like to create an environment and culture committed to co-operation,quality and responsiveness that permits every activity.</p>
+				  <p>We take this oppertunity to wish you the very best in your tenure with tenure of contact with <strong>'.system_info('company_name').'</strong>.</p>
 				  <p>Your sincerely,</p>
-				  <p>  For <span class="myFontBg" style="text-transform:uppercase;">'.config_item('company_name').'</span> </p>
+				  <p>  For <span class="myFontBg" style="text-transform:uppercase;">'.system_info('company_name').'</span> </p>
 				  <p>Name,<br/><br/><br/>
 					Authorised Signatory</p>
 				   <p>Please indicates your acceptance of the terms by signing and returning the duplicates copy hereof</p>

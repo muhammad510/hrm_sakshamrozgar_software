@@ -6,9 +6,9 @@ class Common extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-            $this->load->model('setting/Common_model', 'common');
-            ($this->session->userdata('mim_id')== '') ? redirect(base_url(), 'refresh') : '';
-            error_reporting(0);	
+        $this->load->model('setting/Common_model', 'common');
+        ($this->session->userdata('mim_id') == '') ? redirect(base_url(), 'refresh') : '';
+        error_reporting(0);
     }
     function chageStatus()
     {

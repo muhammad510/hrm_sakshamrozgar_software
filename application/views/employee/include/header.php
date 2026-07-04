@@ -10,8 +10,8 @@ $role=$this->session->userdata('mi_role');
 						<a class="main-header-menu-icon" href="javascript:void(0);" id="mainSidebarToggle"><span></span></a>
 						<div class="hor-logo">
 							<a class="main-logo" href="<?php echo base_url('employee/dashboard');?>">
-								<img src="<?php echo base_url('assets/img/brand/logo.png');?>" class="header-brand-img desktop-logo" alt="logo">
-								<img src="<?php echo base_url('assets/img/brand/logo-light.png');?>" class="header-brand-img desktop-logo-dark" alt="logo">
+								<img src="<?php echo base_url(system_info('logo'));?>" class="header-brand-img desktop-logo" alt="logo">
+								<img src="<?php echo base_url(system_info('logo'));?>" class="header-brand-img desktop-logo-dark" alt="logo">
 							</a>
 						</div>
 					</div>

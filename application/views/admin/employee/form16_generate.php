@@ -50,7 +50,7 @@
                         <tr><th colspan="3">Certificate No.</th><th colspan="3">Last updated on</th></tr>
                         <tr><th colspan="3"> <span class="myFontBg" id="crtfctNo">XXXXXXXXXXX</span></th><td colspan="3"> <span class="myFontBg" id="lstDate">XXXXXXXXXX</span></td></tr>
                         <tr><th colspan="3">Name and address of the Employer</th> <th colspan="3">Name and address of the Deductee </th></tr>
-                        <tr><th colspan="3"><span class="myFontBg" id="nameAdrEmployer"> <?php echo config_item('company_name') ?></span></th><th colspan="3"><span class="myFontBg" id="nmOfEmplyee"> XXXXXXXXXXXXXXXX</span></th></tr>
+                        <tr><th colspan="3"><span class="myFontBg" id="nameAdrEmployer"> <?php echo system_info('company_name') ?></span></th><th colspan="3"><span class="myFontBg" id="nmOfEmplyee"> XXXXXXXXXXXXXXXX</span></th></tr>
                         <tr><th>PAN of the Employer</th><th colspan="2"> TAN of the Employer</th> <th>PAN of the Employee</th><th colspan="2"> Employee Reference No. provided by the Employer (If available)</th> </tr>
                         <tr>
                         	<th><span class="myFontBg"><?php echo config_item('zipCode');?></span></th><th colspan="2"><span class="myFontBg" id="tanOfEmplyee">XXXXXXXXX</span></th>

@@ -6,11 +6,11 @@
 
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-	<meta name="description" content="<?php echo config_item('company_name') ?>">
-	<meta name="author" content="<?php echo config_item('company_name') ?>">
-	<meta name="keywords" content="<?php echo config_item('company_name') ?>">
+	<meta name="description" content="<?php echo system_info('company_name') ?>">
+	<meta name="author" content="<?php echo system_info('company_name') ?>">
+	<meta name="keywords" content="<?php echo system_info('company_name') ?>">
 	<!-- TITLE -->
-	<title> <?php echo $title ?> | <?php echo config_item('company_name') ?> </title>
+	<title> <?php echo $title ?> | <?php echo system_info('company_name') ?> </title>
 	<!-- FAVICON -->
 	<link rel="icon" href="<?php echo base_url();?>assets/img/fbicon.ico">
 	<!-- BOOTSTRAP CSS -->
@@ -102,7 +102,7 @@
 									alt="logo"></a>
 						</div>
 						<div class="input-group">
-							<span class="cNm"><?php echo config_item('company_name');?></span> <span class="sfNm"> :  <?php echo config_item('software');?> - Installer</span>
+							<span class="cNm"><?php echo system_info('company_name');?></span> <span class="sfNm"> :  <?php echo config_item('software');?> - Installer</span>
 						</div>
 					</div>
 					
@@ -248,7 +248,7 @@ else{$requirement15 = "<span class='label label-success'>Ok</span>";}
 														</span></p>
 														<p><span>
 														Best Regards,</span></p>
-														<h3><?php echo config_item('company_name') ?></h3>
+														<h3><?php echo system_info('company_name') ?></h3>
 													</div>
 													</div>
 													
@@ -282,7 +282,7 @@ else{$requirement15 = "<span class='label label-success'>Ok</span>";}
 				<div class="container">
 					<div class="row row-sm">
 						<div class="col-md-12">
-							<span>Copyright © 2023 <a href="#"><?php echo config_item('company_name') ?> </a>. Designed by 
+							<span>Copyright © 2023 <a href="#"><?php echo system_info('company_name') ?> </a>. Designed by 
 							<a href="https://www.facebook.com/amisingh143"><?php echo config_item('dev_name') ?> </a> All rights reserved.</span>
 						</div>
 					</div>

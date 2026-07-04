@@ -3,11 +3,11 @@
 <head>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-<meta name="description" content="<?php echo config_item('company_name'); ?>">
-<meta name="author" content="<?php echo config_item('company_name'); ?>">
-<meta name="keywords" content="<?php echo config_item('company_name'); ?>">
+<meta name="description" content="<?php echo system_info('company_name'); ?>">
+<meta name="author" content="<?php echo system_info('company_name'); ?>">
+<meta name="keywords" content="<?php echo system_info('company_name'); ?>">
 <!-- TITLE -->
-<title><?php echo $title; ?> | <?php echo config_item('company_name'); ?></title>
+<title><?php echo $title; ?> | <?php echo system_info('company_name'); ?></title>
 <link rel="shortcut icon" href="<?php echo base_url() ?>media/images/<?php echo config_item('logo_sm')?>">
 <script src="<?php echo base_url('db/jquery.min.js');?>"></script>
 <style>

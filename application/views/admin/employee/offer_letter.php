@@ -54,9 +54,9 @@ table {
                   <span class="myFontBg" id="empAddr">_ _ _ _ _ _ _ _ _ _</span><br/>
                   City-<span class="myFontBg" id="empCity">_ _ _ _ _ _ _ _ _ _</span> ,<br />PIN <span class="myFontBg" id="empZipCode">_ _ _ _ _ _ _ _</span></p>
                 <p> Dear <span class="empFlName myFontBg">_ _ _ _ _ _ _ _ _ _</span>, </p>
-                <p> We thank you for deciding to be a part of the <span class="myFontBg"><?php echo config_item('company_name') ?></span> family. </p>
+                <p> We thank you for deciding to be a part of the <span class="myFontBg"><?php echo system_info('company_name') ?></span> family. </p>
                 <p> <span class="myFontBg">Congratulations</span> and welcome onboard a dynamic and winning team! </p>
-                <p>Further to your acceptance of the offer letter dated Date of Offer Letter, we are pleased to confirm your appointment as <span class="myFontBg empDesign">Designation</span> for our  <span class="myFontBg empDepartment">Department Name</span>  at  Location  in  <span class="myFontBg"><?php echo config_item('company_name') ?></span> . </p>
+                <p>Further to your acceptance of the offer letter dated Date of Offer Letter, we are pleased to confirm your appointment as <span class="myFontBg empDesign">Designation</span> for our  <span class="myFontBg empDepartment">Department Name</span>  at  Location  in  <span class="myFontBg"><?php echo system_info('company_name') ?></span> . </p>
                 <p> Please make note of the following important terms and conditions of your employment: </p>
                 <p>Commencement of employment: You have joined our services on date of joining and the said date has been recorded as your Date of Joining and will be considered as such for all future purposes pertaining to your employment association with us.</p>
                 <p>Compensation & Benefits: Please refer to Annexure I, for details of your remuneration and benefits as applicable to you. The aforesaid CTC is subject to applicable taxes and statutory deductions that may prevail from time to time.</p>
@@ -73,7 +73,7 @@ table {
                
                 <p>Wish you a successful professional stint with us. We look forward to a mutually beneficial and enriching experience having you on board. All the best!</p>
                 <p>Warm Regards,<br/>
-                  For <span class="myFontBg" style="text-transform:uppercase;"><?php echo config_item('company_name') ?></span> </p>
+                  For <span class="myFontBg" style="text-transform:uppercase;"><?php echo system_info('company_name') ?></span> </p>
                 <p>Name,<br/>
                   Authorised Signatory Designation </p>
                 <p> <div class="page-break"></div>
@@ -86,7 +86,7 @@ table {
                  <span class="myFontBg"> 1) Service Agreement </span></p>
                 <table>
                     <tr><td colspan="3" style="text-align:center"><span class="myFontBg">ANNEXURE I</span></td></tr>
-                    <tr><td colspan="3" style="text-align:center"><span class="myFontBg"><?php echo config_item('company_name') ?></span></td></tr>
+                    <tr><td colspan="3" style="text-align:center"><span class="myFontBg"><?php echo system_info('company_name') ?></span></td></tr>
                     <tr><td style="width:40%">Employee No </td><td colspan="2"><span class="myFontBg empCd"></span></td></tr>
                     <tr><td style="width:40%">Name </td><td colspan="2"><span class="myFontBg empFlName" style="text-transform:uppercase;"></span></td></tr>
                     <tr><td style="width:40%">Designation </td><td colspan="2"><span class="myFontBg empDesign" style="text-transform:uppercase;"></span></td></tr>
