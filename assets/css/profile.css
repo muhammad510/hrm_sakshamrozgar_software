@@ -1,0 +1,50 @@
+.pyDet {border-left: 1px solid #45545436;border-right: 1px solid #45545436;}.pyHdr {color: #009966;padding: 10px;font-weight: bold;text-transform: uppercase;border-top: 3px solid #096;background-color: #ddffea45;margin: 0px -1px 0px -1px;}.pyListDet {list-style: none;padding-left: 0px !important;margin-bottom: 0px;}.mStrong {font-weight: 600;float: right;color: #1a8c03;}.pyListDet li {padding: 10px 20px 10px 10px;border-bottom: 1px dashed #1f74bf;color: #04559d;}.pyListDet li:last-child {border-bottom: 0px;font-weight: bold;background-color: #a0f4fd4d;}.netPyble {background-color: #a3fda01c;padding: 10px 20px 10px 10px;margin-bottom: 10px;border: 1px solid #45545436;text-align: right;text-transform: uppercase;font-weight: bold;color: #464646;}.pyDed {border: 1px solid #45545436;border-top-width: 1px;border-top-style: solid;border-top-color: rgba(69, 84, 84, 0.21);border-top: 0px;}.pyDeduHdr {color: #993200;padding: 10px;font-weight: bold;text-transform: uppercase;border-top: 3px solid #993200;background-color: #9932000a;margin: 0px -1px 0px -1px;}.pyListDeduDet {list-style: none;padding-left: 0px !important;margin-bottom: 0px;}.pyListDeduDet li {padding: 10px 20px 10px 10px;border-bottom: 1px dashed #bf451f;color: #9d7004;}.pyListDeduDet li:last-child {border-bottom: 0px;font-weight: bold;background-color: #ffe3bc;}.mDedStrong {font-weight: 600;float: right;color: #036e8e;}#myImg {border-radius: 5px;cursor: pointer;transition: 0.3s;}#myImg:hover {opacity: 0.7;}.miModal{display:none;position:fixed;z-index:1;padding-top:100px;left:0;top:65px;width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);background-color:rgba(0,0,0,0.9);}.miModal-content{margin:auto;display:block;width:80%;max-width:700px;}#miCaption{margin:auto;display:block;width:80%;max-width:700px;text-align:center;color:#ccc;padding:10px0;height:150px;}.miModal-content,#miCaption{-webkit-animation-name:zoom;-webkit-animation-duration:0.6s;animation-name:zoom;animation-duration:0.6s;}@-webkit-keyframes zoom {from{-webkit-transform:scale(0)}to{-webkit-transform:scale(1)}}@keyframes zoom {from {transform:scale(0)} to {transform:scale(1)}}.miClose {position:absolute;top:15px;right:35px;color:#f1f1f1;font-size:20px;font-weight:bold;transition:0.3s;}
+.miClose:hover,.miClose:focus{color:#bbb;text-decoration:none;cursor:pointer;}
+
+
+.form-control[readonly]{background-color: #fff !important;}.miForm-control{width:60px !important;margin-right:5px;display:block;height:calc(1.5em + 0.75rem + 2px);padding:0.175rem .4rem 0.175rem 0.4rem;font-size:0.875rem;font-weight:400;line-height:1.5;color: #0D3E73;background-color:#ffffff;background-clip:padding-box;border:1px solid #e8e8f7;border-radius:3px;transition:border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;height:38px;border-radius:5px;border-top-left-radius:5px;border-bottom-left-radius:5px;}.miForm-control:focus{color:#42617F;background-color:#fff;border-color:#e8e8f7;outline:0;}.pyDetails{background-color:#E0F2C969;padding:10px;border:1px solid #D3EAB73B;margin-bottom:20px;}.miDeduction{background-color:#ffebd357;padding:10px;border:1px solid #ffebd391;margin-bottom:20px;}
+
+
+.alert-solid-custom {
+  background-color: #4F46B0;
+  border-width: 0;
+  padding: 12px 15px;
+  border-radius: 0;
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+  border-radius: 3px;
+}
+
+.ntPyble{background-color: #bcf6ff57;padding: 10px;border:1px solid #94d9e357;margin-bottom: 20px;}
+
+.ntPyble input{ font-weight: 700;}
+
+
+@media only screen and (max-width: 700px){.miModal-content {width: 100%;}}
+.delMsg{text-align:center;font-size:20px;margin:30px 0px 10px 0px;color:#df3400;}.actnData {text-align: center;margin: 0px 0px 20px 0px;color: #716c6c;font-size: .8rem;}
+/*************************************************************************/
+.miCntr tr th{ text-align:center;}.mHd{margin-top:5px;margin-bottom:-15px;font-weight: 700;color:#D06D25;}/*.mHd span{ font-weight:700; color:#D06D25;}*/.empDocDetail img{max-width: 700px;}
+.mContent{background-color:rgba(0, 0, 0, 0.04)  !important;box-shadow:0 0 0 1px rgba(0, 0, 0, 0), 0 8px 16px 0 rgba(0, 0, 0, 0.05) !important;}.arBtn i{color:#FFFFFF;}.arBtn{ margin:-20px -70px 0px 0px !important;}#uplDocDetails{ display:none;}
+#bckToDoclist{ margin-right:5px;}.miBck a:hover{ background-color:#645bca; color:#fff;}.miBck{ font-weight:600;text-transform: uppercase; float:right;margin-right: -10px;}
+.miBck a{ border:1px solid #645bca;padding:8px 12px 8px 12px;border-radius:5px;color:#645bca;font-weight:500;}#netPaybleSalAmt {color: green;}
+.naSpc{color:#db5200;font-weight:600;}	.miCenter th,td{ text-align:center !important;}	.midocImg{ text-align:center;}.midocImg div{color:#8a3b3b;text-transform:uppercase;font-weight:bold;}	.midocImg img{ height:200px;}
+.empDocHead{padding: 10px 10px 10px 0px;font-weight: bold;margin:0px -3px 15px -3px !important;border-bottom: 1px solid #f9f3f3; }				
+/******************************************New Editing On 03-03-2024 Start********************************************/
+#proBnkBck,#proDetBck,#proCompBck,#proSalStpBck{ margin-right:5px;}.miSlwdth{width:90%;margin:-38px 0px 0px 35px !important;}	.miSlctSpn{padding:11px 10px 11px 10px;}.ami_tHeader{ background-color:#088;}
+.ami_tHeader > tr > th{ color:#FFFFFF !important;border: 1px solid #088 !important;padding: 12px 0px 12px 5px !important;}.ami_tHeader > tr{border: 1px solid #088 !important;}
+.bgPrsnt{background-color:#0dcd94;}.bgLat{background-color:#f34932;}.bgAbsnt{background-color:#f7284a;}.bgHoliDy{background-color:#0073d9;}.bgHfDy{background-color:#e3b113;}
+#empPayslip_filter input,#reportAppearance_filter,#empLeaveSummary_filter input{width:75%;}.btn-miOk {color: #10c1b1 !important;border-color: #10c1b1;}.miWdth {width: 65px;}
+/******************************************New Editing On 03-03-2024 Ended********************************************/
+.icnClr i{font-size: .75rem;color: #FFF;padding: 5px;background-color: #4D43B0;border-radius: 5px;margin-right: 5px;}.prodeRow{padding:11.85px 0px 11.85px 0px;border-bottom:1px dashed #454545;margin:0px 15px 0px 15px;}.detDrk{font-weight:900;color:#0D3E73;}
+.prLst{border-bottom:0px solid #fff;}.rounded-circle{height:128px; width:128px}.miLbl span{font-weight:bold;}.miPad{padding-left:1.7rem !important;}
+.item1-links li{cursor:pointer !important;}.hedings{border-bottom:1px solid #f0f0f0;padding:15px 0px 15px 15px;background-color:#19b159;border-top-left-radius: 10px;
+border-top-right-radius: 10px;margin:-26px -24.5px 0px -24.5px;justify-content: space-between;}.hedings label{color:#fff;}.hedings label i{ padding:8px; background-color:#047713;border-radius: 10px;color: #fff;}
+.hedings a i{padding:8px;background-color:#fff;border-radius:20px;color:#047713;margin-right:15px;}  .hedings a{ float:right;}#imgUpload{ margin-top: -25px;}
+#imgUpload i{ background-color:#ffffff8a;color:#5148B5;padding:7px;border-radius: 15px;cursor: pointer;}
+.si-camera:hover{  background-color:#fff !important;color:#5148B5 !important;}

@@ -1,0 +1,39 @@
+ 		<!-- BACK TO TOP -->
+		<a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a>
+
+		<!-- BOOTSTRAP JS -->
+		<script src="<?php echo base_url('assets/plugins/bootstrap/js/popper.min.js');?>"></script>
+		<script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.min.js');?>"></script>
+		<!-- PERFECT SCROLLBAR JS -->
+		<script src="<?php echo base_url('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js');?>"></script>
+		<!-- SIDEMENU JS -->
+		<script src="<?php echo base_url('assets/plugins/sidemenu/sidemenu.js');?>" id="leftmenu"></script>
+		<!-- SIDEBAR JS -->
+		<script src="<?php echo base_url('assets/plugins/sidebar/sidebar.js');?>"></script>
+		<!-- SELECT2 JS -->
+		<script src="<?php echo base_url('assets/plugins/select2/js/select2.min.js');?>"></script>
+		<script src="<?php echo base_url('assets/js/select2.js');?>"></script>
+		<!-- Internal Chart.Bundle js-->
+		<script src="<?php echo base_url('assets/plugins/chart.js/Chart.bundle.min.js');?>"></script>
+		<!-- Peity js-->
+		<script src="<?php echo base_url('assets/plugins/peity/jquery.peity.min.js');?>"></script>
+		<!-- Internal Morris js -->
+		<script src="<?php echo base_url('assets/plugins/raphael/raphael.min.js');?>"></script>
+		<script src="<?php echo base_url('assets/plugins/morris.js/morris.min.js');?>"></script>
+		<!-- Circle Progress js-->
+		<script src="<?php echo base_url('assets/plugins/circle-progress/circle-progress.min.js');?>"></script>
+		<script src="<?php echo base_url('assets/js/chart-circle.js');?>"></script>
+		<!-- Internal Dashboard js-->
+		<script src="<?php echo base_url('assets/js/index.js');?>"></script>
+        <!-- STICKY JS -->
+		<script src="<?php echo base_url('assets/js/sticky.js');?>"></script>
+        <!-- COLOR THEME JS -->
+        <script src="<?php echo base_url('assets/js/themeColors.js');?>"></script>
+        <!-- CUSTOM JS -->
+        <script src="<?php echo base_url('assets/js/custom.js');?>"></script>
+        <!-- SWITCHER JS -->
+        <script src="<?php echo base_url('assets/switcher/js/switcher.js');?>"></script>
+		<script src="<?php echo base_url('assets/js/software.min.js');?>"></script>
+		<script src="<?php echo base_url('assets/js/employee/common.js');?>"></script>
+        
+        <!-- END SCRIPTS -->
