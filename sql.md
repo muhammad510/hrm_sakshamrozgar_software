@@ -1,1 +1,3 @@
 ALTER TABLE `system_config` ADD `logo` TEXT NULL AFTER `error_reporting`, ADD `favicon` TEXT NULL AFTER `logo`, ADD `phone` TEXT NULL AFTER `favicon`, ADD `email` TEXT NULL AFTER `phone`, ADD `youtube` TEXT NULL AFTER `email`, ADD `facebook` TEXT NULL AFTER `youtube`;
+
+ALTER TABLE `system_config` ADD `state` INT(11) NULL AFTER `facebook`, ADD `district` INT(11) NULL AFTER `state`, ADD `zipCode` VARCHAR(100) NULL AFTER `district`, ADD `cRegistration` TEXT NULL AFTER `zipCode`, ADD `cPanNu` TEXT NULL AFTER `cRegistration`, ADD `cGstNu` TEXT NULL AFTER `cPanNu`;

@@ -283,7 +283,7 @@ else{$requirement15 = "<span class='label label-success'>Ok</span>";}
 					<div class="row row-sm">
 						<div class="col-md-12">
 							<span>Copyright © 2023 <a href="#"><?php echo system_info('company_name') ?> </a>. Designed by 
-							<a href="https://www.facebook.com/amisingh143"><?php echo config_item('dev_name') ?> </a> All rights reserved.</span>
+							<a href="https://camwel.com/"><?php echo config_item('dev_name') ?> </a> All rights reserved.</span>
 						</div>
 					</div>
 				</div>

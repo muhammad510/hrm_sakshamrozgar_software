@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('Can we play bubu together ?');
     $config['logo_dark'] = "uploads/company/664a8d908de035a5badc103883fe4773.png";
     $config['logo_sm'] = "uploads/company/logo-sm.png";
     $config['logo_light'] = "uploads/company/logo-light.png";
-    $config['logo_sm_light'] = "uploads/company/logo-sm-light.png";
+    $config['logo_sm_light'] = "uploads/company/images.jpeg";
 	
 	$config['license_key'] = "677b0e74a4147b2fe56a75b66b9e2236";//9D2O-T13X-5A0W-39WQ-0JN8
 	$config['is_valid'] = "validate";
