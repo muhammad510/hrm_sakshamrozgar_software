@@ -145,10 +145,10 @@ function toastShowInPage(adCls,msg,icon) {
             <button class="btn ripple fntMi btn-outline-success " data-bs-toggle="modal" data-bs-target="#clockinmodal">
                <?php if($getAttendance){if($getAttendance['log_in_time']==""){?> <i class="fe fe-sunrise"></i> Clock In<?php }else{?><i class="fe fe-sunset"></i> Clock Out<?php }}?>
              </button>
-              <a href="mailto:<?php echo config_item('email'); ?>" class="btn ripple btn-outline-secondary">
+              <a href="mailto:<?php echo system_info('email'); ?>" class="btn ripple btn-outline-secondary">
                      <i class="fe fe-mail"></i>
               </a>
-               <a href="tel:<?php echo config_item('mobile_number'); ?>" class="btn ripple btn-outline-info">
+               <a href="tel:<?php echo system_info('phone'); ?>" class="btn ripple btn-outline-info">
                     <i class="fe fe-phone-call"></i>
                </a> 
                <button class="btn ripple btn-outline-dark" data-bs-placement="top" data-bs-toggle="tooltip" aria-label="Info" data-bs-original-title="Info">

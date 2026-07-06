@@ -801,7 +801,7 @@ class Employee extends CI_Controller
 			}
 			echo json_encode($return);
 		} else {
-			$getCompanySt = $this->common->state_district(config_item('district'));
+			$getCompanySt = $this->common->state_district(csystem_info('district'));
 			$data = array(
 				'title' => 'Employee Form 16 generate',
 				'breadcrums' => 'Employee Form 16 generate',

@@ -17,9 +17,9 @@
               <div class="cmpniHd"><?php echo system_info('company_name'); ?></div>
               <div class="text-center">
                 <!--<div class="cmpniReg">REG. OFFICE : </div>-->
-                <div class="cmpniAdr"> <?php echo config_item('address'); ?> </div>
-                <div class="cmpniOthr"> <?php echo config_item('email'); ?><br />
-                  <?php echo config_item('mobile_number'); ?> </div>
+                <div class="cmpniAdr"> <?php echo system_info('company_address'); ?> </div>
+                <div class="cmpniOthr"> <?php echo system_info('email'); ?><br />
+                  <?php echo system_info('phone'); ?> </div>
               </div>
               </address>
             </div>

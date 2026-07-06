@@ -448,10 +448,10 @@ function toastShowInPage(adCls,msg,icon) {
                                            <?php if($getAttendance){if($getAttendance['log_in_time']==""){?> <i class="fe fe-sunrise"></i> Punch In
                                            <?php }else{?><i class="fe fe-sunset"></i> Punch Out<?php }}?>
                                          </button>
-                                          <a href="mailto:<?php echo config_item('email'); ?>" class="btn ripple btn-outline-secondary">
+                                          <a href="mailto:<?php echo system_info('email'); ?>" class="btn ripple btn-outline-secondary">
                                                  <i class="fe fe-mail"></i>
                                           </a>
-                                           <a href="tel:<?php echo config_item('mobile_number'); ?>" class="btn ripple btn-outline-info">
+                                           <a href="tel:<?php echo system_info('phone'); ?>" class="btn ripple btn-outline-info">
                                                 <i class="fe fe-phone-call"></i>
                                            </a> 
                                            <button class="btn ripple btn-outline-dark"> <i class="fe fe-info"></i></button>

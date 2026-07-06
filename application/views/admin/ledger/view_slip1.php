@@ -18,12 +18,12 @@
                                 	
                                     <!--<div class="cmpniReg">REG. OFFICE : </div>-->
 										<div class="cmpniAdr">
-											<?php echo config_item('address'); ?>
+											<?php echo system_info('company_address'); ?>
 										</div>
 									
                                      <div class="cmpniOthr">
-                               	        	<?php echo config_item('email'); ?><br />
-                               		        <?php echo config_item('mobile_number'); ?>
+                               	        	<?php echo system_info('email'); ?><br />
+                               		        <?php echo system_info('phone'); ?>
                                     </div>
 									</div>
                                 </address>

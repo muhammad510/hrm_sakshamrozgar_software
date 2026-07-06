@@ -86,7 +86,7 @@ function warning_letter($where)
 					<p>Regards,</p>
 					<p><strong>' . $where['managerNm'] . '</strong></p>
 					<p><em>Reporting Manager</em></p>
-					<p>' . system_info('company_name') . ' | ' . config_item('address') . ' | ' . config_item('mobile_number') . '</p>
+					<p>' . system_info('company_name') . ' | ' . system_info('company_address') . ' | ' . system_info('phone') . '</p>
 				  </div>
 				</div>
 			  </div>

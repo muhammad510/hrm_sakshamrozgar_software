@@ -8,7 +8,7 @@
 <meta name="keywords" content="<?php echo system_info('company_name'); ?>">
 <!-- TITLE -->
 <title><?php echo $title; ?>|<?php echo system_info('company_name'); ?></title>
-<link rel="shortcut icon" href="<?php echo base_url() ?>media/images/<?php echo config_item('logo_sm')?>">
+<link rel="shortcut icon" href="<?php echo base_url(system_info('favicon')) ?>">
 <script src="<?php echo base_url('db/jquery.min.js');?>"></script>
 <style>
 #payFormat {font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 100%;}

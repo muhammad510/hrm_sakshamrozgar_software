@@ -8,7 +8,7 @@
 <meta name="keywords" content="<?php echo system_info('company_name'); ?>">
 <!-- TITLE -->
 <title><?php echo $title; ?> | <?php echo system_info('company_name'); ?></title>
-<link rel="shortcut icon" href="<?php echo base_url(config_item('logo_sm')); ?>">
+<link rel="shortcut icon" href="<?php echo base_url(system_info('favicon')); ?>">
 <script src="<?php echo base_url('db/jquery.min.js');?>"></script>
 <style>
 .empTitle{width:95pt;white-space:nowrap !important;padding:1px 4px 1px 4px;color:black;font-family:"Courier New", monospace;font-style:normal;font-weight:bold;text-decoration:none;font-size:9pt;text-transform:uppercase;}.empHead{width:95pt;border-top-style:solid;border-top-width:1pt;white-space:nowrap !important;padding:1px 4px 1px 4px;color:black;font-family:"Courier New", monospace;font-style:normal;font-weight:bold;text-decoration:none;font-size:9pt;}.arvTtl{padding: 1px 4px 1px 4px;border-top:0px solid #000;}.arvTtl p{padding-top:2pt;text-indent: 0pt;text-align: left;font-size: 9pt;font-weight: bold;text-transform:uppercase;}	

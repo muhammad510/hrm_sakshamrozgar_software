@@ -53,12 +53,12 @@
                         <tr><th colspan="3"><span class="myFontBg" id="nameAdrEmployer"> <?php echo system_info('company_name') ?></span></th><th colspan="3"><span class="myFontBg" id="nmOfEmplyee"> XXXXXXXXXXXXXXXX</span></th></tr>
                         <tr><th>PAN of the Employer</th><th colspan="2"> TAN of the Employer</th> <th>PAN of the Employee</th><th colspan="2"> Employee Reference No. provided by the Employer (If available)</th> </tr>
                         <tr>
-                        	<th><span class="myFontBg"><?php echo config_item('zipCode');?></span></th><th colspan="2"><span class="myFontBg" id="tanOfEmplyee">XXXXXXXXX</span></th>
+                        	<th><span class="myFontBg"><?php echo system_info('zipCode');?></span></th><th colspan="2"><span class="myFontBg" id="tanOfEmplyee">XXXXXXXXX</span></th>
                         	<th><span class="myFontBg" id="panOfEmplyee">XXXXXXXXXXXXXX</span></th><th colspan="2">XXXXXXXXXXXX</th>
                         </tr>
                         <tr><th colspan="3">CIT (TDS)</th><th colspan="1"> Assessment Year</th><th colspan="2"> Period</th></tr>
                         <tr>
-                          <td colspan="3" style="border-bottom:none;"> Address <div class="myFontBg"><?php echo config_item('address');?></div></td>
+                          <td colspan="3" style="border-bottom:none;"> Address <div class="myFontBg"><?php echo system_info('company_address');?></div></td>
                           <td colspan="1" style="border-bottom:none;"></td><th colspan="1" style="border-bottom:none;">From</th><th colspan="1" style="border-bottom:none;">To</th>
                         </tr>
                         <tr><td colspan="3" style="border-bottom:none;border-top:none;"></td><td rowspan="2" style="border-top:none;">XXXXXXXXXXX</td><th rowspan="2"></th><th rowspan="2"></th>
@@ -66,8 +66,8 @@
                         <tr>
                         	<td colspan="3" style="border-top:none;">
                             	City : <span class="myFontBg" id="myAddrCity"><?php echo ($getCompanySt)?$getCompanySt->district:'<span class="ntYet">N/A</span>';?></span> 
-                                <br />Phone : <span class="myFontBg"><?php echo config_item('mobile_number');?></span>
-                                <br />Pin : <span class="myFontBg"><?php echo config_item('zipCode');?></span>
+                                <br />Phone : <span class="myFontBg"><?php echo system_info('phone');?></span>
+                                <br />Pin : <span class="myFontBg"><?php echo system_info('zipCode');?></span>
                              </td>
                         </tr>
                         <tr><th class="tac" colspan="6"> Summary of amount paid/credited and tax deducted at source thereon in respect of the employee </th>  </tr>
