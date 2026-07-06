@@ -460,7 +460,7 @@ $userCt=$this->session->userdata('user_cate');
 					<div class="row row-sm">
 						<div class="col-md-12">
 							<span>Copyright © 2023 <a href="#"><?php echo system_info('company_name'); ?></a>. Designed by 
-							<a href="https://camwel.com/"><?php echo config_item('dev_name'); ?></a> All rights reserved.</span>
+							<a href="https://camwel.com/"><?php echo system_info('company_name'); ?></a> All rights reserved.</span>
 						</div>
 					</div>
 				</div>
