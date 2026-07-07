@@ -104,6 +104,7 @@ class Employee extends CI_Controller
 			}
 			$employee = array(
 				'name'                    => $inp['name'],
+				'uan'                     => $inp['uan'],
 				'dob'                     => date('Y-m-d', strtotime(str_replace("/", "-", $inp['dob']))),
 				'gender'                  => $inp['gender'],
 				'contact_no'              => $inp['contact_no'],
@@ -170,12 +171,26 @@ class Employee extends CI_Controller
 			if ($where->action == 'editDetails') {
 				$employee = $this->staff->getEmployeeDetails($where->id);
 				if ($employee->salary_id != '0') {
+
 					$values = 'id,gross_sal_amt as grSal,basic_sal as basic_pay,hraAmt,taAmt,daAmt,paAmt,ROUND((basic_sal*100)/gross_sal_amt,2) as basic_percent,hraAmt,ROUND((hraAmt*100)/gross_sal_amt,2) as hra_percent,taAmt,ROUND((taAmt*100)/gross_sal_amt,2) as ta_percent, daAmt,ROUND((daAmt*100)/gross_sal_amt,2) as da_percent,paAmt,ROUND((paAmt*100)/gross_sal_amt,2) as pa_percent,bonus,medical as mediAmt,ROUND((medical*100)/gross_sal_amt,2) as medical_percent,insentive,otherInc as  other_deduction ,ROUND((pfAmt*100)/basic_sal,2) as pf_percent,esicEmpAmt,esicEmplyrAmt as esicEmpLyrAmt,pfAmt,advance as advance_amt,tdsAmt,ROUND((tdsAmt*100)/gross_sal_amt,2) as tds_percent,insurance as insurance_amt,net_payble as net_payble_amt,
 						ROUND((esicEmplyrAmt*100)/(net_payble+esicEmpAmt),2) as esic_employer,ROUND((esicEmpAmt*100)/(net_payble+esicEmpAmt),2) as esic_employee';
-					$getSalarySumary = $this->common->get_data('employee_salary_setup', array('desig_id' => $employee->designation, 'br_id' => $employee->branch_id, 'emp_id' => $employee->id), $values);
+
+					$con = array(
+						'desig_id'  => $employee->designation,
+						'br_id'     => $employee->branch_id,
+						'emp_id'    => $employee->id
+					);
+
+					$getSalarySumary = $this->common->get_data('employee_salary_setup', $con, $values);
 				} else {
 					$values = 'id,gross_sal_amt as grSal,ROUND((gross_sal_amt*basic_percent)/100,2) as basic_pay,basic_percent,ROUND((gross_sal_amt*hra_percent)/100,2) as hraAmt,hra_percent,ROUND((gross_sal_amt*ta_percent)/100,2) as taAmt,ta_percent,ROUND((gross_sal_amt*da_percent)/100,2) as daAmt,da_percent,ROUND((gross_sal_amt*pa_percent)/100,2) as paAmt,pa_percent,bonus,ROUND((gross_sal_amt*medical_percent)/100,2) as mediAmt,medical_percent,incentive,other_inc,ROUND((basic_amt*pf_percent)/100,2) as pfAmt,pf_percent,esic_employee,ROUND((gross_sal_amt*esic_employee)/100, 2) as esicEmpAmt,esic_employer,ROUND((gross_sal_amt*esic_employer)/100, 2) as esicEmpLyrAmt,advance_amt,ROUND((gross_sal_amt*tds_percent)/100,2) as tdsAmt,tds_percent,insurance_amt,other_deduction,net_payble_amt';
-					$getSalarySumary = $this->common->get_data('salary_master', array('desig_id' => $employee->designation, 'branch_id' => $employee->branch_id), $values);
+
+					$con = array(
+						'desig_id' => $employee->designation,
+						'branch_id' => $employee->branch_id
+					);
+
+					$getSalarySumary = $this->common->get_data('salary_master', $con, $values);
 				}
 				/*echo $this->db->last_query();	
 					exit;*/
