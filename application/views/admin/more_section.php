@@ -27,7 +27,7 @@
 <div class="page main-signin-wrapper bg-primary construction">
   <div class="container ">
     <div class="construction1 text-center details text-white">
-      <div class="arvImgLogo"> <img src="<?php echo base_url();?>assets/img/brand/logo-light.png" class="mb-5" alt="logo">
+      <div class="arvImgLogo"> <img src="<?php echo base_url(system_info('logo'));?>" class="mb-5" alt="logo">
         <h4 class="text-center text-white tx-30 font-weight-bold ">We are Coming soon</h4>
 <!--        <p class="text-white-50 tx-15">We're making the system more awesome.<br>we'll be back shortly.</p>
         <div id="launch_date"></div>-->

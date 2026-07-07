@@ -27467,6 +27467,7 @@ body.rtl {
     line-height: 2.5rem;
     vertical-align: middle;
     width: auto;
+    height: 124px;
 }
 
 .header-navheading {
@@ -29218,6 +29219,7 @@ body.rtl {
 .side-menu .header-brand-img {
     margin-top: 0 !important;
     outline: 0;
+    height: 35px;
 }
 
 .main-footer {

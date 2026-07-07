@@ -93,7 +93,7 @@ $mailsec=
 '<table width="500" border="0" cellpadding="0" cellspacing="0" style="background-color: #f9f9f9; border:1px solid #f9f9f9;">
   	<tr><td style=" height:90px;" ><table width="100%" border="0"><tr>
    <td style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 24px;color: #FFFFFF;text-align: center;padding: 1rem;" colspan="2">
-			<img src="'.base_url().'assets/img/brand/logo.png" width="200" height="80">
+			<img src="'.base_url(system_info('logo')).'" width="200" height="80">
 	</td>
   </tr>
 </table></td>
