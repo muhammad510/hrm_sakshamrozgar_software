@@ -107,7 +107,7 @@
         .auth-card {
             position: relative;
             z-index: 1;
-            width: 100%;
+            width: 50%;
             max-width: 1120px;
             background: rgba(255, 255, 255, 0.80);
             backdrop-filter: blur(24px) saturate(1.4);
@@ -127,7 +127,7 @@
         @media (min-width: 992px) {
             .auth-card {
                 flex-direction: row;
-                min-height: 640px;
+                min-height: auto;
             }
         }
 
