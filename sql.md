@@ -4,3 +4,10 @@ ALTER TABLE `system_config` ADD `state` INT(11) NULL AFTER `facebook`, ADD `dist
 
 ALTER TABLE `staff` ADD `uan` TEXT NULL AFTER `biometric_id`;
 ALTER TABLE `staff` ADD `referred_by` INT(11) NULL AFTER `status`;
+
+
+ALTER TABLE `staff` ADD `face_attendance` LONGTEXT NULL AFTER `id`;
+
+ALTER TABLE `system_config` ADD `latitude` DOUBLE NULL AFTER `company_url`, ADD `longitude` DOUBLE NULL AFTER `latitude`, ADD `allowed_radius` DOUBLE NULL AFTER `longitude`;
+
+ALTER TABLE `staff_attendance` ADD `login_face` LONGTEXT NULL AFTER `out_location`, ADD `logout_face` LONGTEXT NULL AFTER `login_face`;
