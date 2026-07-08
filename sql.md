@@ -3,3 +3,4 @@ ALTER TABLE `system_config` ADD `logo` TEXT NULL AFTER `error_reporting`, ADD `f
 ALTER TABLE `system_config` ADD `state` INT(11) NULL AFTER `facebook`, ADD `district` INT(11) NULL AFTER `state`, ADD `zipCode` VARCHAR(100) NULL AFTER `district`, ADD `cRegistration` TEXT NULL AFTER `zipCode`, ADD `cPanNu` TEXT NULL AFTER `cRegistration`, ADD `cGstNu` TEXT NULL AFTER `cPanNu`;
 
 ALTER TABLE `staff` ADD `uan` TEXT NULL AFTER `biometric_id`;
+ALTER TABLE `staff` ADD `referred_by` INT(11) NULL AFTER `status`;

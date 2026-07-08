@@ -94,53 +94,71 @@ class Employee extends CI_Controller
 		if ($this->form_validation->run() == TRUE) {
 
 			$inp = $this->input->post();
-			$getYear = date('Y');
-			$getLeaveDuration = '01-01-' . $getYear . '@@@@' . '01-12-' . $getYear;
-			$getLeave = $this->employee->getApprovedLeave();
-			if ($getLeave) {
-				$allotedLeave = $getLeave->approvLeave;
+
+			$isexist = $this->db_model->select('id', 'staff', ['employee_id' => $inp['referred_by']]);
+			if ($isexist <= 0) {
+				$data = array(
+					'addClas' => 'tst_danger',
+					'msg' => array('Referd By Employee Id Not Valid'),
+					'icon' => '<i class="pe-7s-sun bx-spin"></i>'
+				);
 			} else {
-				$allotedLeave = NULL;
+
+				$getYear = date('Y');
+				$getLeaveDuration = '01-01-' . $getYear . '@@@@' . '01-12-' . $getYear;
+				$getLeave = $this->employee->getApprovedLeave();
+				if ($getLeave) {
+					$allotedLeave = $getLeave->approvLeave;
+				} else {
+					$allotedLeave = NULL;
+				}
+				$employee = array(
+					'name'                    => $inp['name'],
+					'uan'                     => $inp['uan'],
+					'dob'                     => date('Y-m-d', strtotime(str_replace("/", "-", $inp['dob']))),
+					'gender'                  => $inp['gender'],
+					'contact_no'              => $inp['contact_no'],
+					'email'                   => $inp['email'],
+					'address'                 => $inp['address'],
+					'user_type'               => $inp['user_type'],
+					'employee_id'             => $inp['employee_id'],
+					'branch_id'               => $inp['branch'],
+					'department'              => $inp['department'],
+					'designation'             => $inp['designation'],
+					'biometric_id'            => $inp['bioMtric'],
+					'date_of_joining'         => date('Y-m-d', strtotime(str_replace("/", "-", $inp['date_of_joining']))),
+					'shift'                   => $inp['shift'],
+					'approved_leave'          => str_replace(" ", "", $allotedLeave),
+					'leave_in_between'        => $getLeaveDuration,
+					'password'                => md5($inp['password']),
+					'show_password'           => $inp['password'],
+					'created_by_user_type_id' => $this->logID,
+					'created_at'              => date('Y-m-d'),
+					'referred_by'            => $inp['referred_by'],
+
+				);
+
+				$data = $this->common->save_data('staff', $employee);
+				$employee['gender'] = ($inp['gender'] == '1') ? 'Male' : (($inp['gender'] == '2') ? 'Female' : 'Transgender');
+				$employee['user_type'] = ($inp['user_type'] == '2') ? 'Super Admin' : (($inp['user_type'] == '3') ? 'Admin' : 'Employee');
+				$getBranch = $this->common->getRowData('branch_manage', 'id', $inp['branch_id']);
+				$department = $this->common->getRowData('department', 'id', $inp['department']);
+				$department = $this->common->getRowData('department', 'id', $inp['department']);
+				$designation = $this->common->getRowData('designation', 'id', $inp['designation']);
+				$shift = $this->common->getRowData('shift_manage', 'id', $inp['shift']);
+				$employee['branch_id'] = ($getBranch) ? $getBranch->branch_name : 'Camwel Solution LLP';
+				$employee['department'] = ($department) ? $department->department_name : 'Development';
+				$employee['designation'] = ($designation) ? $designation->designation_name : 'Software Developer';
+				$employee['shift_timing'] = ($shift) ? $shift->shift_name : 'Testing Time';
+				$employee['image'] = 'uploads/employee/no_img.png';
+
+				$data = array(
+					'addClas' => 'tst_success',
+					'msg' => array('Thank you! You have successfully created new ' . (($inp['user_type'] = '1') ? 'Admin' : 'Employee')),
+					'icon' => '<i class="ti-check-box"></i>',
+					'emp' => $employee
+				);
 			}
-			$employee = array(
-				'name'                    => $inp['name'],
-				'uan'                     => $inp['uan'],
-				'dob'                     => date('Y-m-d', strtotime(str_replace("/", "-", $inp['dob']))),
-				'gender'                  => $inp['gender'],
-				'contact_no'              => $inp['contact_no'],
-				'email'                   => $inp['email'],
-				'address'                 => $inp['address'],
-				'user_type'               => $inp['user_type'],
-				'employee_id'             => $inp['employee_id'],
-				'branch_id'               => $inp['branch'],
-				'department'              => $inp['department'],
-				'designation'             => $inp['designation'],
-				'biometric_id'            => $inp['bioMtric'],
-				'date_of_joining'         => date('Y-m-d', strtotime(str_replace("/", "-", $inp['date_of_joining']))),
-				'shift'                   => $inp['shift'],
-				'approved_leave'          => str_replace(" ", "", $allotedLeave),
-				'leave_in_between'        => $getLeaveDuration,
-				'password'                => md5($inp['password']),
-				'show_password'           => $inp['password'],
-				'created_by_user_type_id' => $this->logID,
-				'created_at'              => date('Y-m-d')
-			);
-
-			$data = $this->common->save_data('staff', $employee);
-			$employee['gender'] = ($inp['gender'] == '1') ? 'Male' : (($inp['gender'] == '2') ? 'Female' : 'Transgender');
-			$employee['user_type'] = ($inp['user_type'] == '2') ? 'Super Admin' : (($inp['user_type'] == '3') ? 'Admin' : 'Employee');
-			$getBranch = $this->common->getRowData('branch_manage', 'id', $inp['branch_id']);
-			$department = $this->common->getRowData('department', 'id', $inp['department']);
-			$department = $this->common->getRowData('department', 'id', $inp['department']);
-			$designation = $this->common->getRowData('designation', 'id', $inp['designation']);
-			$shift = $this->common->getRowData('shift_manage', 'id', $inp['shift']);
-			$employee['branch_id'] = ($getBranch) ? $getBranch->branch_name : 'Camwel Solution LLP';
-			$employee['department'] = ($department) ? $department->department_name : 'Development';
-			$employee['designation'] = ($designation) ? $designation->designation_name : 'Software Developer';
-			$employee['shift_timing'] = ($shift) ? $shift->shift_name : 'Testing Time';
-			$employee['image'] = 'uploads/employee/no_img.png';
-
-			$data = array('addClas' => 'tst_success', 'msg' => array('Thank you! You have successfully created new ' . (($inp['user_type'] = '1') ? 'Admin' : 'Employee')), 'icon' => '<i class="ti-check-box"></i>', 'emp' => $employee);
 		} else {
 
 			$msg = array(
@@ -160,7 +178,11 @@ class Employee extends CI_Controller
 				'shift'           => form_error('shift'),
 				'password'        => form_error('password')
 			);
-			$data = array('addClas' => 'tst_danger', 'msg' => $msg, 'icon' => '<i class="pe-7s-sun bx-spin"></i>');
+			$data = array(
+				'addClas' => 'tst_danger',
+				'msg' => $msg,
+				'icon' => '<i class="pe-7s-sun bx-spin"></i>'
+			);
 		}
 		echo json_encode($data);
 	}

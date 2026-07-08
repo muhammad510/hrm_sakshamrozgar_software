@@ -372,7 +372,7 @@ $("#edSalDetails").submit(function (e) {
 });
 
 $("#edProDetails").submit(function (e) {
-	let target = $(this).attr("data-id");
+	let target = $(this).attr("data-id");	
 	e.preventDefault();
 	$.ajax({
 		url: target,

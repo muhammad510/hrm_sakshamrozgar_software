@@ -230,6 +230,17 @@
 											<textarea type="text" name="address" id="address" class="form-control" rows="5" placeholder="Please Enter Your Address..."></textarea>
 										</div>
 									</div>
+
+									<div class="col-md-4">
+										<label>Referred By [Employee Id]</label>
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text"><i class="fas fa-user"></i></span>
+											</div>
+											<input type="text" name="referred_by" oninput="this.value = this.value.toUpperCase().replace(/[^0-9]/g, '').replace(/(\  *?)\  */g, '$1')" id="referred_by" class="form-control" placeholder="Enter Referd by Employee Id" maxlength="8">
+										</div>
+									</div>
+
 									<div class="miSecn" style="margin-top:20px;"> <i class="si si-event"></i> Company Details</div>
 									<div class="col-md-4">
 										<label>Biometric ID(8 Digit) :<!-- <span class="text-danger">*</span>--></label>
