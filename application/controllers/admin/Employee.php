@@ -287,7 +287,12 @@ class Employee extends CI_Controller
 		if (!$page) $page = 1;
 		$limit = 12;
 		$offset = ($page - 1) * $limit;
-		$where = array('limit' => $limit, 'offset' => $offset, 'logCat' => $this->logCat, 'logBr' => $this->logBr);
+		$where = array(
+			'limit' => $limit,
+			'offset' => $offset,
+			'logCat' => $this->logCat,
+			'logBr' => $this->logBr
+		);
 		$data['employees'] = $this->employee->get_employees($where);
 		$total_rows = $this->employee->get_total_employees($where);
 		$data['total_rows'] = $total_rows;
@@ -309,7 +314,37 @@ class Employee extends CI_Controller
 			if ($getResult) {
 				foreach ($getResult as $emp) {
 					$imgLoc = base_url($emp['image']);
-					$empList .= '<div class="col-md-6 col-lg-6 col-xl-3 col-sm-6"><div class="card custom-card"><div class="p-0 ht-100p"><div class="product-grid"><div class="product-image"><a href="ecommerce-product-details.html" class="image"><img style="height: 230px;" class="pic-1" alt="product-image-1" src="' . $imgLoc . '"></a><div class="product-link"><a href="javascript:void(0);"data-bs-target="#view_employee_modal" data-bs-toggle="modal" style="margin-left:-5px;" onclick="view_employee(' . $emp['id'] . ')" title="Click to View Employee Details" class="miDefault"><i class="fas fa-eye"></i><span>Quick View</span></a><a href="javascript:void(0);"data-bs-target="#update_employee_modal" data-bs-toggle="modal" style="margin-left:-5px;" onclick="update_employee(' . $emp['id'] . ')" title="Click to Update Employee Details" class="miDefault"><i class="fa fa-pencil-square-o"></i><span>Edit Details</span></a></div></div><div class="product-content"><h3 class="title"><a href="javascript:void(0);">' . $emp['name'] . '<span>(' . $emp['employee_id'] . ') </span></a></h3><div class="price"><span class="text-danger">' . $emp['designation_name'] . '</span></div></div></div></div></div></div>';
+					$empList .= '<div class="col-md-6 col-lg-6 col-xl-3 col-sm-6">
+					<div class="card custom-card">
+					<div class="p-0 ht-100p">
+					<div class="product-grid">
+					<div class="product-image">
+					<a href="ecommerce-product-details.html" class="image">
+					<img style="height: 230px;" class="pic-1" alt="product-image-1" src="' . $imgLoc . '">
+					</a>
+					<div class="product-link">
+					<a href="javascript:void(0);"data-bs-target="#view_employee_modal" data-bs-toggle="modal" style="margin-left:-5px;" onclick="view_employee(' . $emp['id'] . ')" title="Click to View Employee Details" class="miDefault">
+					<i class="fas fa-eye"></i>
+					<span>Quick View</span>
+					</a>
+					<a href="javascript:void(0);"data-bs-target="#update_employee_modal" data-bs-toggle="modal" style="margin-left:-5px;" onclick="update_employee(' . $emp['id'] . ')" title="Click to Update Employee Details" class="miDefault">
+					<i class="fa fa-pencil-square-o"></i>
+					<span>Edit Details</span>
+					</a>
+					</div>
+					</div>
+					<div class="product-content">
+					<h3 class="title">
+					<a href="javascript:void(0);">' . $emp['name'] . '<span>(' . $emp['employee_id'] . ') </span></a>
+					</h3>
+					<div class="price">
+					<span class="text-danger">' . $emp['designation_name'] . '</span>
+					</div>
+					</div>
+					</div>
+					</div>
+					</div>
+					</div>';
 				}
 			}
 
