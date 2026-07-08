@@ -104,7 +104,7 @@ onLoad="generatePDF_2();"
         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/><br/>
         Applicant Name Akash Nareshbhai Chunara<br/><br/>
         Employee Code EMP9001</div>
-     <div class="offrFtrImg"> <img src="http://localhost/attendance/uploads/company/offer_bottom.png"> </div>
+    
       <p style="clear: both;">Encl: <span class="myFontBg"> 1) Service Agreement </span></p>
       <table id="payFormat">
         <tr>

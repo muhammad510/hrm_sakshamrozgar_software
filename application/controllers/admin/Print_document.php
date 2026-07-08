@@ -43,7 +43,13 @@ class Print_document extends CI_Controller
 		$post = $this->input->post();
 		$result = '';
 		if ($post['actnMode'] == 'optedSelect') {
-			$isEmployee = $this->common->all_data_con('staff', array('branch_id' => $post['id'], 'user_type' => '4'), '*');
+
+			$con = array(
+				'branch_id' => $post['id'],
+				// 'user_type' => '4'
+			);
+
+			$isEmployee = $this->common->all_data_con('staff', $con, '*');
 			if ($isEmployee) {
 				$dpList = '<option value="">Select Employee</option>';
 				foreach ($isEmployee as $emp) {

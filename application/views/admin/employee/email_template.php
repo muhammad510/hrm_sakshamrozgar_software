@@ -35,7 +35,7 @@
                             <td style=" height:90px;" ><table width="100%" border="0">
                                 <tr>
                                   <td style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 24px;color: #FFFFFF;text-align: center;padding: 1rem;" colspan="2">
-								  	<img src="'.base_url('uploads/company/offer_letter.png').'" style="580px;" > 
+								  	<img src="'.base_url(system_info('logo')).'" style="580px;" > 
 							      </td>
                                 </tr>
                               </table></td>
@@ -79,7 +79,9 @@
                                             _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/>
                                             Applicant Name <strong>'.$where['empName'].'</strong><br/>
                                             Employee Code <strong>'.$where['empCode'].'</strong></div>
-                                         <div class="offrFtrImg"> <img src="'.base_url('uploads/company/offer_bottom.png').'"> </div>
+
+                                       
+
                                           <p style="clear: both;font-size:13px;padding-top:10px;border-top:1px solid #4f4f4f;margin-top: 15px;">
 										  		Encl: <span class="myFontBg"> 1) Service Agreement </span>
 									       </p>

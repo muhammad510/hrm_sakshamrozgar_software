@@ -60,8 +60,8 @@ function warning_letter($where)
 				<img src="' . base_url(system_info('favicon')) . '" style="height:100px;width:auto;text-align:right">
 				</div>
 				<div class="col-md-8">
-				<h3 style="text-align:center">'.system_info('company_name').'</h3>
-				<h6 style="text-align:center">'.system_info('company_address').'</h6>
+				<h3 style="text-align:center">' . system_info('company_name') . '</h3>
+				<h6 style="text-align:center">' . system_info('company_address') . '</h6>
 				</div>
 
 				</div>				 
@@ -98,7 +98,7 @@ function warning_letter($where)
 function offer_letter($where)
 {
 	$printPage = '<div class="offrHdrImg">
-				<img src="' . base_url('uploads/company/offer_letter.png') . '"> </div>
+				<img src="' . base_url(system_info('logo')) . '" style="height: 100px;"> </div>
 			  <div class="parent mrvPd">
 				<div class="child child-1"><strong> Ref. No. - </strong>' . $where['jobReqNo'] . '</div>
 				<div class="child child-2">Offer Letter</div>
@@ -132,7 +132,12 @@ function offer_letter($where)
 					_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/><br/>
 					Applicant Name <strong>' . $where['empName'] . '</strong><br/><br/>
 					Employee Code <strong>' . $where['empCode'] . '</strong></div>
-				 <div class="offrFtrImg"> <img src="' . base_url('uploads/company/offer_bottom.png') . '"> </div>
+
+				 <div class="offrFtrImg"> 
+				 
+				---------------------------------------------------------------------------------------
+				 </div>
+
 				  <p style="clear: both;">Encl: <span class="myFontBg"> 1) Service Agreement </span></p>
 				  <table id="payFormat">
 					<tr><td colspan="2"  style="text-align:center"><span class="myFontBg">ANNEXURE I</span></td></tr>
