@@ -583,39 +583,50 @@ class Profile extends CI_Controller
 		if ($this->form_validation->run() == TRUE) {
 			$post = $this->input->post();
 			if ($post['grsSalAmt'] == 0) {
-				$data = array('addClas' => 'tst_danger', 'msg' => array('Please input valid gross amount.'), 'icon' => '<i class="fe fe-settings bx-spin"></i>');
+				$data = array(
+					'addClas' => 'tst_danger',
+					'msg' => array('Please input valid gross amount.'),
+					'icon' => '<i class="fe fe-settings bx-spin"></i>'
+				);
 			} else if ($post['basicPayPercent'] == 0) {
-				$data = array('addClas' => 'tst_danger', 'msg' => array('Please input valid basic pay amount.'), 'icon' => '<i class="fe fe-settings bx-spin"></i>');
+				$data = array(
+					'addClas' => 'tst_danger',
+					'msg' => array('Please input valid basic pay amount.'),
+					'icon' => '<i class="fe fe-settings bx-spin"></i>'
+				);
 			} else {
-				$isExistSalary = $this->common->get_data('employee_salary_setup', array('br_id' => $where->branch_id, 'desig_id' => $where->designation, 'emp_id' => $where->id), '*');
-				$isSalaryId = $this->common->get_data('salary_master', array('branch_id' => $where->branch_id, 'desig_id' => $where->designation), '*');
+				$con = array('br_id' => $where->branch_id, 'desig_id' => $where->designation, 'emp_id' => $where->id);
+				$isExistSalary = $this->common->get_data('employee_salary_setup', $con, '*');
+				$con1 = array('branch_id' => $where->branch_id, 'desig_id' => $where->designation);
+				$isSalaryId = $this->common->get_data('salary_master', $con1, '*');
 				if (!$isExistSalary) {
 					$createArr = array(
-						'sal_mstr_id' => $isSalaryId['id'],
-						'emp_id' => $where->id,
-						'br_id' => $where->branch_id,
-						'desig_id' => $where->designation,
-						'esicEmpAmt' => $post['esicEmpPayAmt'],
-						'esicEmplyrAmt' => $post['esicEmpAmt'],
-						'gross_sal_amt' => $post['grsSalAmt'],
-						'basic_sal' => $post['basicPayAmt'],
-						'hraAmt' => $post['hraPayAmt'],
-						'taAmt' => $post['taPayAmt'],
-						'daAmt' => $post['daPayAmt'],
-						'paAmt' => $post['paPayAmt'],
-						'bonus' => $post['bonusPayAmt'],
-						'medical' => $post['mediAllPayAmt'],
-						'insentive' => $post['basicInsentvAmt'],
-						'otherInc' => $post['otherBsInc'],
-						'pfAmt' => $post['pfPayAmt'],
-						'tdsAmt' => $post['tdsPayAmt'],
-						'insurance' => $post['insurancePayAmt'],
-						'otherInc' => $post['otherDedPayAmt'],
-						'net_payble' => $post['netPayAmt'],
-						'created_by' => $this->logId,
-						'created_date' => date('Y-m-d H:i:s')
+						'sal_mstr_id'          => $isSalaryId['id'],
+						'emp_id'               => $where->id,
+						'br_id'                => $where->branch_id,
+						'desig_id'             => $where->designation,
+						'esicEmpAmt'           => $post['esicEmpPayAmt'],
+						'esicEmplyrAmt'        => $post['esicEmpAmt'],
+						'gross_sal_amt'        => $post['grsSalAmt'],
+						'basic_sal'            => $post['basicPayAmt'],
+						'hraAmt'               => $post['hraPayAmt'],
+						'taAmt'                => $post['taPayAmt'],
+						'daAmt'                => $post['daPayAmt'],
+						'paAmt'                => $post['paPayAmt'],
+						'bonus'                => $post['bonusPayAmt'],
+						'medical'              => $post['mediAllPayAmt'],
+						'insentive'            => $post['basicInsentvAmt'],
+						'otherInc'             => $post['otherBsInc'],
+						'pfAmt'                => $post['pfPayAmt'],
+						'tdsAmt'               => $post['tdsPayAmt'],
+						'insurance'            => $post['insurancePayAmt'],
+						'otherInc'             => $post['otherDedPayAmt'],
+						'net_payble'           => $post['netPayAmt'],
+						'created_by'           => $this->logId,
+						'created_date'         => date('Y-m-d H:i:s')
 					);
 					$isCurrentSal = $this->common->save_data('employee_salary_setup', $createArr);
+					
 					if ($isCurrentSal) {
 						$salryUpArr = array('salary_id' => $isCurrentSal, 'salary_amount' => $post['netPayAmt']);
 						if ($this->common->update_data('staff', array('id' => $where->id), $salryUpArr)) {

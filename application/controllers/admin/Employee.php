@@ -96,7 +96,7 @@ class Employee extends CI_Controller
 			$inp = $this->input->post();
 
 			$isexist = $this->db_model->select('id', 'staff', ['employee_id' => $inp['referred_by']]);
-			if ($isexist <= 0) {
+			if ($isexist <= 0 && $inp['referred_by']!='') {
 				$data = array(
 					'addClas' => 'tst_danger',
 					'msg' => array('Referd By Employee Id Not Valid'),
@@ -139,6 +139,8 @@ class Employee extends CI_Controller
 				);
 
 				$data = $this->common->save_data('staff', $employee);
+				$this->load->model('Core_model');
+				$this->Core_model->salary_set_acording_to_master_salary($inp['employee_id']);
 				$employee['gender'] = ($inp['gender'] == '1') ? 'Male' : (($inp['gender'] == '2') ? 'Female' : 'Transgender');
 				$employee['user_type'] = ($inp['user_type'] == '2') ? 'Super Admin' : (($inp['user_type'] == '3') ? 'Admin' : 'Employee');
 				$getBranch = $this->common->getRowData('branch_manage', 'id', $inp['branch_id']);

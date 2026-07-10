@@ -14,3 +14,8 @@ ALTER TABLE `staff_attendance` ADD `login_face` LONGTEXT NULL AFTER `out_locatio
 
 
 ALTER TABLE `staff_attendance` ADD `in_latitude` TEXT NULL AFTER `out_location`, ADD `in_longitude` TEXT NULL AFTER `in_latitude`, ADD `out_latitude` TEXT NULL AFTER `in_longitude`, ADD `out_longitude` TEXT NULL AFTER `out_latitude`;
+
+ALTER TABLE `staff` CHANGE `is_team_leader` `is_team_leader` VARCHAR(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '0';
+
+
+ALTER TABLE `salary_master` ADD `department_id` INT(11) NULL AFTER `branch_id`;
