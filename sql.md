@@ -11,3 +11,6 @@ ALTER TABLE `staff` ADD `face_attendance` LONGTEXT NULL AFTER `id`;
 ALTER TABLE `system_config` ADD `latitude` DOUBLE NULL AFTER `company_url`, ADD `longitude` DOUBLE NULL AFTER `latitude`, ADD `allowed_radius` DOUBLE NULL AFTER `longitude`;
 
 ALTER TABLE `staff_attendance` ADD `login_face` LONGTEXT NULL AFTER `out_location`, ADD `logout_face` LONGTEXT NULL AFTER `login_face`;
+
+
+ALTER TABLE `staff_attendance` ADD `in_latitude` TEXT NULL AFTER `out_location`, ADD `in_longitude` TEXT NULL AFTER `in_latitude`, ADD `out_latitude` TEXT NULL AFTER `in_longitude`, ADD `out_longitude` TEXT NULL AFTER `out_latitude`;
