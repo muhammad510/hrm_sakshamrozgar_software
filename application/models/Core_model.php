@@ -46,14 +46,14 @@ class Core_model  extends CI_Model
                 'created_by'           => $this->session->mim_id,
                 'created_date'         => date('Y-m-d H:i:s')
             );
-            $isCurrentSal = $this->db->insert('employee_salary_setup', $createArr);
+            $isCurrentSal = $this->common->save_data('employee_salary_setup', $createArr);
 
 
             $salryUpArr = array(
                 'salary_id' => $isCurrentSal,
                 'salary_amount' => $masterSalary->net_payble_amt
             );
-            $this->db->where(array('id' => $employee->id))->update_data('staff', $salryUpArr);
+            $this->db->where(array('id' => $employee->id))->update('staff', $salryUpArr);
         }
 
         return true;
