@@ -256,12 +256,17 @@
                 cardHtml += '<p class="text-muted mb-0 mt-2"><i class="mdi mdi-google-maps font-size-15 align-middle pe-2 text-dark"></i> ' + employee.address + '</p></div><div class="d-flex gap-2 pt-4">';
                 cardHtml += '<a href="javascript:void(0)" class="btn ripple btn-offer btn-sm w-25 mail_icon"  data-bs-toggle="modal" data-bs-target="#sendNotifyDetails" title="Offer Letter" data-id="' + mailSend + '===offer">'
                 cardHtml += '<img src="' + response.urlLoc + 'assets/img/send_offer_letter.png"></a>'
+
                 cardHtml += '<a href="javascript:void(0)" class="btn ripple btn-warn btn-sm w-25 mail_icon" data-bs-toggle="modal" data-bs-target="#sendNotifyDetails" title="Warning Letter" data-id="' + mailSend + '===warning">'
                 cardHtml += '<img src="' + response.urlLoc + 'assets/img/send_warning_letter.png"></a>'
+
                 cardHtml += '<a href="javascript:void(0)" class="btn ripple btn-promote btn-sm w-25 mail_icon" data-bs-toggle="modal" data-bs-target="#sendNotifyDetails" title="Promotion Letter" data-id="' + mailSend + '===promote">'
                 cardHtml += '<img src="' + response.urlLoc + 'assets/img/send_promotion_letter.png"></a>'
+
                 cardHtml += '<a href="javascript:void(0)" class="btn btn-regin btn-sm w-25 mail_icon" data-bs-toggle="modal" data-bs-target="#sendNotifyDetails" title="Regination Letter" data-id="' + mailSend + '===depart">'
-                cardHtml += '<img src="' + response.urlLoc + 'assets/img/send_regination_letter.png"></a></div></div></div></div>';
+                cardHtml += '<img src="' + response.urlLoc + 'assets/img/send_regination_letter.png"></a>'
+
+                cardHtml += '<a href="<?= base_url("common/idcard/") ?>' + employee.employee_id + '" class="btn btn-regin btn-sm w-25 mail_icon" target="_blank" title="Print Id Card"><i class="fa fa-user"></i></a></div></div></div></div>';
               });
 
               var paginationHtml = '<div class="row row-sm"><div class="col-sm-12 col-md-5"><div  class="dataTables_info" role="status" aria-live="polite">Showing ' + ((page - 1) * limit + 1) + ' to ' + ((page * limit) > totalRows ? totalRows : (page * limit)) + ' of ' + totalRows + ' entries</div></div>';
