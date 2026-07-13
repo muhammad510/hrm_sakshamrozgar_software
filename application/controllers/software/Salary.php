@@ -33,6 +33,7 @@ class Salary extends CI_Controller
 					'<strong>' . $i++ . '.</strong>',
 					$row->salary_code,
 					$row->branch_name,
+					$row->department_name,
 					$row->designation_name,
 					'<span class="inrBlue"><i class="fa fa-inr" aria-hidden="true"></i></span> ' . $row->gross_sal_amt,
 					'<span class="inrRed"><i class="fa fa-inr" aria-hidden="true"></i></span> ' . $tGrossDeduction,
@@ -48,6 +49,7 @@ class Salary extends CI_Controller
 		} else if ($actn == 'createNew') {
 			$this->form_validation->set_rules('brOffice', 'office branch', 'required');
 			$this->form_validation->set_rules('designation', 'designation', 'required');
+			$this->form_validation->set_rules('department', 'Department', 'required');
 			$this->form_validation->set_rules('grsSalAmt', 'gross salary details', 'required');
 			$this->form_validation->set_rules('basicPayPercent', 'basic salary details', 'required');
 			if ($this->form_validation->run() == TRUE) {
@@ -71,6 +73,7 @@ class Salary extends CI_Controller
 								'salary_code'     => $salID,
 								'branch_id'       => $post['brOffice'],
 								'desig_id'        => $post['designation'],
+								'department_id'   => $post['department'],
 								'gross_sal_amt'   => $post['grsSalAmt'],
 								'basic_percent'   => $post['basicPayPercent'],
 								'basic_amt'       => $basAmt,
@@ -135,29 +138,57 @@ class Salary extends CI_Controller
 			echo json_encode($data);
 		} else if ($actn == 'viewDetails' || $actn == 'editDetails') {
 			$id = $this->input->post('id');
-			$getDetails = $this->salary_master->getSalaryDetailsData($id);
+			$getDetails = $this->salary_master->getSalaryDetailsData($id);			
 			if ($getDetails) {
-				$getBrDet = $this->common->get_data('branch_manage', array('id' => $getDetails->branch_id), 'designation');
-				if ($getBrDet['designation']) {
-					$department = explode(',', $getBrDet['designation']);
+				$getBrDet = $this->common->get_data('branch_manage', array('id' => $getDetails->branch_id), 'designation,department');
+
+
+				if ($getBrDet['department']) {
+					$department = explode(',', $getBrDet['department']);
 					if ($department) {
-						$dpList = '<option value="">Select Department</option>';
+						$dpList = '<option value="">Select department</option>';
 						foreach ($department as $dList) {
-							$desigDet = $this->common->get_data('designation', array('id' => $dList), 'designation_name');
+							$desigDet = $this->common->get_data('department', array('id' => $dList), 'department_name');
 							if ($desigDet) {
-								$isSelect = ($getDetails->desig_id == $dList) ? 'selected="selected"' : '';
-								$dpList .= '<option value="' . $dList . '"  ' . $isSelect . '>' . $desigDet['designation_name'] . '</option>';
+								$isSelect = ($getDetails->department_id == $dList) ? 'selected="selected"' : '';
+								$dpList .= '<option value="' . $dList . '"  ' . $isSelect . '>' . $desigDet['department_name'] . '</option>';
+							}
+						}
+						$resultDepart = $dpList;
+					} else {
+						$resultDepart = '<option value="">Choose Department</option>';
+					}
+				} else {
+					$resultDepart = '<option value="">Choose Department</option>';
+				}
+
+			
+
+				if ($getBrDet['designation']) {
+					// $designation = explode(',', $getBrDet['designation']);
+					$designation = $this->db_model->select_all_with_con('designation', '*', ['department' => $getDetails->department_id]);
+
+					if ($designation) {
+						$dpList = '<option value="">Select designation</option>';
+						foreach ($designation as $dList) {							
+							if ($desigDet) {
+								$isSelect = ($getDetails->desig_id == $dList->id) ? 'selected="selected"' : '';
+								$dpList .= '<option value="' . $dList->id . '"  ' . $isSelect . '>' . $dList->designation_name . '</option>';
 							}
 						}
 						$resultDesig = $dpList;
 					} else {
-						$resultDesig = '<option value="">Choose Department</option>';
+						$resultDesig = '<option value="">Choose designation</option>';
 					}
 				} else {
-					$resultDesig = '<option value="">Choose Department</option>';
+					$resultDesig = '<option value="">Choose designation</option>';
 				}
 
+
+				$getDetails->brDepartment = $resultDepart;
 				$getDetails->brDesignation = $resultDesig;
+
+				// print_r($getDetails);
 
 				$tGrossEarning = $getDetails->basic_pay + $getDetails->hraAmt + $getDetails->taAmt + $getDetails->daAmt + $getDetails->paAmt + $getDetails->bonus + $getDetails->mediAmt + $getDetails->incentive + $getDetails->other_inc;
 				//$tGrossDeduction=(2*$getDetails->pfAmt)+$getDetails->advance_amt+$getDetails->tdsAmt+$getDetails->insurance_amt+$getDetails->other_deduction;
@@ -254,17 +285,17 @@ class Salary extends CI_Controller
 		} else if ($actn == 'findDesignDetails') {
 			$post = $this->input->post();
 			$department_id = $post['id'];
-			 $department_id;
+			$department_id;
 			$getDetails = $this->common->get_data('branch_manage', array('id' => $post['brID']), 'designation');
-			
+
 			if ($getDetails['designation']) {
 				$department = explode(',', $getDetails['designation']);
-				
+
 				if ($department) {
 					$dpList = '<option value="">Select Designation</option>';
 					foreach ($department as $dList) {
 						$desigDet = $this->common->get_data('designation', array('id' => $dList, 'department' => $department_id), 'designation_name');
-						
+
 						if ($desigDet) {
 							$dpList .= '<option value="' . $dList . '">' . $desigDet['designation_name'] . '</option>';
 						}

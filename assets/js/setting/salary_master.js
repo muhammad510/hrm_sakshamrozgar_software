@@ -246,6 +246,7 @@ $(document).ready(function () {
 							$("#target").val(htmlAmi.target);
 							$("#brOffice").select2("val", htmlAmi.branch_id);
 							$("#designation").html(htmlAmi.brDesignation);
+							$("#department").html(htmlAmi.brDepartment);
 							//$("#designation").select2('val', htmlAmi.desig_id);
 
 							$("#basicUpdtID").val(htmlAmi.id);

@@ -500,6 +500,7 @@
                                         <div style="width:80px;">SAL CODE</div>
                                     </th>
                                     <th>Branch</th>
+                                    <th>Department</th>
                                     <th>DESIGNATION</th>
                                     <th>
                                         <div style="width:140px;">GROSS SALARY AMT.</div>
