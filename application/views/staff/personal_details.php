@@ -28,6 +28,14 @@
         <div class="col-md-8 detDrk "><?php echo $employee->name; ?> </div>
       </div>
     </div>
+
+    <div class="col-md-12">
+      <div class="row prodeRow">
+        <div class="col-md-4 icnClr"><i class="<?php echo $genIcn; ?>"></i> Blood Group.</div>
+        <div class="col-md-8 detDrk "><?php echo ($employee->blood_group) ? $employee->blood_group : 'NA'; ?> </div>
+      </div>
+    </div>
+
     <div class="col-md-12">
       <div class="row prodeRow">
         <div class="col-md-4 icnClr"><i class="si si-info"></i> Gender.</div>
@@ -135,6 +143,24 @@
           <input type="text" class="form-control fc-datepicker" name="dob" id="dob" value="<?php echo date('d/m/Y', strtotime($employee->dob)); ?>">
         </div>
       </div>
+
+      <div class="col-6">
+        <label>Blood Group:<span class="text-danger">*</span></label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend"> <span class="input-group-text miSlctSpn"><i class="ti-medall eIcn"></i></span> </div>
+          <div class="miSlwdth">
+            <select class="form-control select2-with-search" name="blood_group" id="blood_group">
+              <option value=""> --- Select Blood Group --- </option>
+              <?php foreach ($blood_group as $b): ?>
+                <option value="<?php echo $b->id; ?>" <?php echo ($employee->blood_group_id==$b->id)?'selected':'';?>><?php echo $b->name; ?></option>
+              <?php endforeach; ?>
+
+            </select>
+          </div>
+        </div>
+      </div>
+
+
       <div class="col-6">
         <label>Gender:<span class="text-danger">*</span></label>
         <div class="input-group mb-3">

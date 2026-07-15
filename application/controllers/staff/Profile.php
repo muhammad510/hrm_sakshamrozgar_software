@@ -151,19 +151,20 @@ class Profile extends CI_Controller
 		if ($this->form_validation->run() == TRUE) {
 			$post = $this->input->post();
 			$proDetails = array(
-				'uan' => $post['uan'],
-				'name' => $post['name'],
-				'father_name' => $post['father_name'],
-				'dob' => date('Y-m-d', strtotime(str_replace("/", "-", $post['dob']))),
-				'gender' => $post['gender'],
-				'contact_no' => $post['contact_no'],
-				'email' => $post['email'],
-				'address' => $post['address'],
-				'state' => $post['state'],
-				'district' => $post['district'],
-				'zipCode' => $post['zipCode'],
-				'marital_status' => $post['marital_status'],
-				'updated_at' => date('Y-m-d')
+				'uan'                 => $post['uan'],
+				'name'                => $post['name'],
+				'father_name'         => $post['father_name'],
+				'dob'                 => date('Y-m-d', strtotime(str_replace("/", "-", $post['dob']))),
+				'gender'              => $post['gender'],
+				'blood_group_id'      => $post['blood_group'],
+				'contact_no'          => $post['contact_no'],
+				'email'               => $post['email'],
+				'address'             => $post['address'],
+				'state'               => $post['state'],
+				'district'            => $post['district'],
+				'zipCode'             => $post['zipCode'],
+				'marital_status'      => $post['marital_status'],
+				'updated_at'          => date('Y-m-d')
 			);
 			if ($this->common->update_data('staff', array('id' => base64_decode(urldecode($getId))), $proDetails)) {
 				$data = array('addClas' => 'tst_success', 'msg' => array('Thank You! you have successfully make you appearance.'), 'icon' => '<i class="ti-check-box"></i>');
@@ -171,17 +172,17 @@ class Profile extends CI_Controller
 		} else {
 
 			$msg = array(
-				'name' => form_error('name'),
-				'father_name' => form_error('father_name'),
-				'dob' => form_error('dob'),
-				'gender' => form_error('gender'),
-				'contact_no' => form_error('contact_no'),
-				'email' => form_error('email'),
-				'address' => form_error('address'),
-				'state' => form_error('state'),
-				'district' => form_error('district'),
-				'zipCode' => form_error('zipCode'),
-				'marital_status' => form_error('marital_status')
+				'name'            => form_error('name'),
+				'father_name'     => form_error('father_name'),
+				'dob'             => form_error('dob'),
+				'gender'          => form_error('gender'),
+				'contact_no'      => form_error('contact_no'),
+				'email'           => form_error('email'),
+				'address'         => form_error('address'),
+				'state'           => form_error('state'),
+				'district'        => form_error('district'),
+				'zipCode'         => form_error('zipCode'),
+				'marital_status'  => form_error('marital_status')
 			);
 			$data = array(
 				'addClas' => 'tst_danger',

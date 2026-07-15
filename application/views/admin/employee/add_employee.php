@@ -173,6 +173,25 @@
 											</div>
 										</div>
 									</div>
+
+									<div class="col-md-4">
+										<label>Bood Group : <span class="text-danger">*</span></label>
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text"><i class="fa-solid fa-droplet"></i></span>
+											</div>
+											<div class="miSlwdth4w">
+												<select name="blood_group" id="blood_group" class="form-control select2-with-search">
+													<option value=""> Choose One </option>
+													<?php foreach($blood_group as $b):?>
+														<option value="<?php echo $b->id;?>"><?php echo $b->name;?></option>
+														<?php endforeach;?>
+												</select>
+											</div>
+										</div>
+									</div>
+
+
 									<div class="col-md-4">
 										<label>Date of Birth: <span class="text-danger">*</span> </label>
 										<div class="input-group mb-3">

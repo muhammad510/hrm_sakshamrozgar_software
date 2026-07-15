@@ -373,6 +373,7 @@ $("#edSalDetails").submit(function (e) {
 
 $("#edProDetails").submit(function (e) {
 	let target = $(this).attr("data-id");	
+	alert(target)
 	e.preventDefault();
 	$.ajax({
 		url: target,

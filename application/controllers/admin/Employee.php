@@ -72,6 +72,7 @@ class Employee extends CI_Controller
 		}
 		$data['branch'] = $this->common->getDataList('branch_manage', $fieldDet, $fieldID);
 		$data['shift']       = $this->common->getDataList('shift_manage', 'status', '1');
+		$data['blood_group'] = $this->db_model->select_all('blood_group', '*');
 		$data['layout']      = "admin/employee/add_employee.php";
 		$this->load->view('base', $data);
 	}
@@ -96,7 +97,7 @@ class Employee extends CI_Controller
 			$inp = $this->input->post();
 
 			$isexist = $this->db_model->select('id', 'staff', ['employee_id' => $inp['referred_by']]);
-			if ($isexist <= 0 && $inp['referred_by']!='') {
+			if ($isexist <= 0 && $inp['referred_by'] != '') {
 				$data = array(
 					'addClas' => 'tst_danger',
 					'msg' => array('Referd By Employee Id Not Valid'),
@@ -117,6 +118,7 @@ class Employee extends CI_Controller
 					'uan'                     => $inp['uan'],
 					'dob'                     => date('Y-m-d', strtotime(str_replace("/", "-", $inp['dob']))),
 					'gender'                  => $inp['gender'],
+					'blood_group_id'          => $inp['blood_group'],
 					'contact_no'              => $inp['contact_no'],
 					'email'                   => $inp['email'],
 					'address'                 => $inp['address'],
@@ -194,6 +196,7 @@ class Employee extends CI_Controller
 			$where = json_decode(base64_decode(urldecode($where)));
 			if ($where->action == 'editDetails') {
 				$employee = $this->staff->getEmployeeDetails($where->id);
+			
 				if ($employee->salary_id != '0') {
 
 					$values = 'id,gross_sal_amt as grSal,basic_sal as basic_pay,hraAmt,taAmt,daAmt,paAmt,ROUND((basic_sal*100)/gross_sal_amt,2) as basic_percent,hraAmt,ROUND((hraAmt*100)/gross_sal_amt,2) as hra_percent,taAmt,ROUND((taAmt*100)/gross_sal_amt,2) as ta_percent, daAmt,ROUND((daAmt*100)/gross_sal_amt,2) as da_percent,paAmt,ROUND((paAmt*100)/gross_sal_amt,2) as pa_percent,bonus,medical as mediAmt,ROUND((medical*100)/gross_sal_amt,2) as medical_percent,insentive,otherInc as  other_deduction ,ROUND((pfAmt*100)/basic_sal,2) as pf_percent,esicEmpAmt,esicEmplyrAmt as esicEmpLyrAmt,pfAmt,advance as advance_amt,tdsAmt,ROUND((tdsAmt*100)/gross_sal_amt,2) as tds_percent,insurance as insurance_amt,net_payble as net_payble_amt,
@@ -246,6 +249,7 @@ class Employee extends CI_Controller
 				} else {
 					$approved_leave = 'No leave Available';
 				}
+				$data['blood_group'] = $this->db_model->select_all('blood_group','*');
 				$data['approved_leave'] = $approved_leave;
 				$data['employee'] = $employee;
 				$data['avrActionTarget'] = base_url('staff/profile/reset_password');
@@ -425,6 +429,7 @@ class Employee extends CI_Controller
 				'name'                    => $inp['name'],
 				'father_name'             => $inp['father_name'],
 				'dob'                     => $inp['dob'],
+				'blood_group_id'          => $inp['blood_group'],
 				'gender'                  => $inp['gender'],
 				'contact_no'              => $inp['contact_no'],
 				'email'                   => $inp['email'],

@@ -414,7 +414,7 @@
     $name = $employee->name ?? 'John Smith';
     $designation = $employee->designation ?? 'Employee';
     $department = $employee->department ?? 'General';
-    $blood = $employee->blod_group ?? 'N/A';
+    $blood = $employee->blood_group ?? 'N/A';
     $phone = $employee->contact_no ?? '—';
     $email = $employee->email ?? '—';
 
