@@ -229,7 +229,42 @@
                             </ul>
                         </li>
                    
-                   
+                   <?php
+							if ($this->session->userdata('user_cate') == 2): ?>
+  							<li class="nav-item">
+  								<a class="nav-link with-sub" href="javascript:void(0)">
+  									<span class="shape1"></span>
+  									<span class="shape2"></span>
+  									<i class="si si-wallet sidemenu-icon menu-icon "></i>
+  									<span class="sidemenu-label">Front CMS</span>
+  									<i class="angle fe fe-chevron-right"></i>
+  								</a>
+  								<ul class="nav-sub">
+  									<li class="nav-sub-item <?php if ($getCurrentLi == 'ledgerpayroll') {
+																	echo 'active';
+																} ?>">
+  										<a class="nav-sub-link <?php if ($getCurrentLi == 'ledgerpayroll') {
+																		echo 'active';
+																	} ?>" href="<?php echo base_url('admin/website/getcareer'); ?>">
+  											Career
+  										</a>
+  									</li>
+
+  									<li class="nav-sub-item <?php if ($getCurrentLi == 'ledgerexpense') {
+																	echo 'active';
+																} ?>">
+  										<a class="nav-sub-link <?php if ($getCurrentLi == 'ledgerexpense') {
+																		echo 'active';
+																	} ?>" href="<?php echo base_url('admin/website/enquiry_list'); ?>">
+  											Enquiry
+  										</a>
+  									</li>
+  								</ul>
+  							</li>
+
+  						<?php endif	?>
+
+
                      
                         <li class="nav-item">
 							<a class="nav-link with-sub" href="javascript:void(0)">
