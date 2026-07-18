@@ -140,7 +140,7 @@
 
         /* ── BRAND PANEL ── */
         .brand-panel {
-            background: linear-gradient(145deg, #1a3a8a, #2563eb, #4f46e5);
+            background: linear-gradient(145deg, #ba47fc, #004e72);
             padding: 40px 32px;
             display: flex;
             flex-direction: column;
@@ -260,9 +260,10 @@
         }
 
         .brand-panel .avatar-ring img {
-            width: 48px;
-            height: 48px;
-            opacity: 0.9;
+            width: 90px;
+            height: 90px;
+            /* opacity: 0.9; */
+            border-radius: 50px;
         }
 
         .brand-panel h5 {
