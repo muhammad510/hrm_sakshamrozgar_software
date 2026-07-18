@@ -259,6 +259,16 @@
   											Enquiry
   										</a>
   									</li>
+
+									<li class="nav-sub-item <?php if ($getCurrentLi == 'ledgerexpense') {
+																	echo 'active';
+																} ?>">
+  										<a class="nav-sub-link <?php if ($getCurrentLi == 'ledgerexpense') {
+																		echo 'active';
+																	} ?>" href="<?php echo base_url('admin/website/manage_gallery'); ?>">Gallery
+  										</a>
+  									</li>
+
   								</ul>
   							</li>
 

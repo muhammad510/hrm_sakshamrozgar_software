@@ -40,3 +40,5 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 ALTER TABLE `staff` ADD `blood_group_id` INT(11) NULL AFTER `dob`;
+
+<!-- create table cms_gallery -->

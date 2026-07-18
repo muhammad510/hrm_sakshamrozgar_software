@@ -118,4 +118,158 @@ class website extends CI_Controller
         $data['layout'] = "admin/website/view_enquiry.php";
         $this->load->view('adm_base', $data);
     }
+
+
+    function upload_image($path, $name)
+    {
+        $config['upload_path']          = './uploads/' . $path;
+        $config['allowed_types']        = 'jpg|png|jpeg';
+        // $config['max_size']             = 100;
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload($name)) {
+            $upload_data =  $this->upload->data();
+            $image_path = "uploads/" . $path . '/' . $upload_data['file_name'];
+
+
+            $a = array('photo' => $image_path);
+            $this->session->set_userdata($a);
+
+
+            $val = array('text' => $image_path, 'icon' => 'success');
+        } else {
+            $val = array('text' => $this->upload->display_errors(), 'icon' => 'error');
+        }
+
+        return $val;
+    }
+
+
+    public function manage_gallery($actn = NULL)
+    {
+        if ($actn == 'list') {
+            $post_data = $this->input->post();
+            $record = $this->leave->gallery_list($post_data);
+            //echo $this->db->last_query();die;
+            // print_r($record);
+            // exit;
+            $i = $post_data['start'] + 1;
+            $return['data'] = array();
+            foreach ($record as $row) {
+                $status = $row->status == 0 ? "Active" : "In-active";
+                $img = '<a target="_blank" href="' . base_url($row->image) . '" >
+                <img width="50" height="50" src=' . base_url($row->image) . '  />
+                </a>';
+                $view = ' <a href="delete_gallery/' . $row->id . '"  title="Click to Delete Details"  onclick="return confirm(\'Are you sure you want to delete this Gallery?\');" class="btn ripple btn-secondary btn-sm getAction">
+					<i class="fa fa-trash "></i>
+				  </a>,
+                   <a href="edit_gallery/' . $row->id . '"  style=""  title="Click to Update Details"  class="btn ripple btn-secondary btn-sm getAction">
+					<i class="ti-pencil-alt"></i>
+				  </a>
+					   </div>';
+
+                $return['data'][] = array(
+                    '<div style="font-weight:900;text-align:center;">' . $i++ . '.</div>',
+                    $row->name,
+                    $row->designation,
+                    $img,
+                    $status,
+                    $view
+                );
+            }
+            $return['recordsTotal'] = $this->leave->website_enquiry_count();
+            $return['recordsFiltered'] = $this->leave->website_filter_enquiry_count($post_data);
+            $return['draw'] = $post_data['draw'];
+            echo json_encode($return);
+        } else {
+            $data['title'] = 'Gallery List';
+            $data['breadcrums'] = 'Gallery List';
+            $data['target'] = 'admin/website/manage_gallery/list';
+            $data['layout'] = "admin/website/manage_list.php";
+            $this->load->view('adm_base', $data);
+        }
+    }
+
+    public function addGallery()
+    {
+        $data['title'] = 'Add Gallery';
+        $data['breadcrums'] = 'Add Gallery';
+        $data['layout'] = "admin/website/add-gallery.php";
+        $this->load->view('adm_base', $data);
+    }
+
+    public function insert_gallery()
+    {
+        $img = $this->upload_image('Gallery', 'image');
+        $data = [
+            'name' => $this->input->post('name'),
+            'image' => $img['text'],
+            'designation' => $this->input->post('designation'),
+        ];
+
+
+        $added = $this->db->insert('cms_gallery', $data);
+        if ($added) {
+            redirect('admin/website/manage_gallery');
+        }
+    }
+
+
+    public function delete_gallery($id)
+    {
+
+        if (!empty($id)) {
+            $deleted =  $this->db->where('id', $id)->delete('cms_gallery');
+            if ($deleted) {
+                redirect('admin/website/manage_gallery');
+            }
+        }
+    }
+
+    public function edit_gallery($id)
+    {
+
+        $data['title'] = 'Edit Gallery';
+        $data['breadcrums'] = 'Edit Gallery';
+        $data['gallery_data'] = $this->db->select('*')->from('cms_gallery')->where('id', $id)->get()->row();
+        $data['layout'] = "admin/website/edit_gallery.php";
+        $this->load->view('adm_base', $data);
+    }
+
+    public function update_gallery($id)
+    {
+
+        $get_img = $this->db->select('image')->from('cms_gallery')->where('id', $id)->get()->row();
+        $get_old_img = $get_img->image;
+
+        if (!empty($_FILES['image']['name'])) {
+
+            // Delete old image
+            if (!empty($old_image) && file_exists(FCPATH . $old_image)) {
+                unlink(FCPATH . $old_image);
+            }
+
+            // Upload new image
+            $upload = $this->upload_image('Gallery', 'image');
+
+            if ($upload['icon'] == 'success') {
+                $data['image'] = $upload['text'];
+            } else {
+                // Upload failed
+                echo $upload['text'];
+                exit;
+            }
+        }
+
+
+        $data['name'] = $this->input->post('name');
+        $data['designation'] = $this->input->post('designation');
+        $updated = $this->db->where('id', $id)->update('cms_gallery', $data);
+        if ($updated) {
+            redirect('admin/website/manage_gallery');
+        }
+    }
 }
