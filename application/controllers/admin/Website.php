@@ -180,8 +180,8 @@ class website extends CI_Controller
                     $view
                 );
             }
-            $return['recordsTotal'] = $this->leave->website_enquiry_count();
-            $return['recordsFiltered'] = $this->leave->website_filter_enquiry_count($post_data);
+            $return['recordsTotal'] = $this->leave->gallery_count();
+            $return['recordsFiltered'] = $this->leave->gallery_filter_count($post_data);
             $return['draw'] = $post_data['draw'];
             echo json_encode($return);
         } else {
@@ -272,4 +272,150 @@ class website extends CI_Controller
             redirect('admin/website/manage_gallery');
         }
     }
+
+
+
+    // Teams section start +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+    public function manage_team($actn = NULL)
+    {
+        if ($actn == 'list') {
+            $post_data = $this->input->post();
+            $record = $this->leave->team_list($post_data);
+            //echo $this->db->last_query();die;
+            // print_r($record);
+            // exit;
+            $i = $post_data['start'] + 1;
+            $return['data'] = array();
+            foreach ($record as $row) {
+                $status = $row->status == 0 ? "Active" : "In-active";
+                $img = '<a target="_blank" href="' . base_url($row->image) . '" >
+                <img width="50" height="50" src=' . base_url($row->image) . '  />
+                </a>';
+                $view = ' <a href="delete_team/' . $row->id . '"  title="Click to Delete Details"  onclick="return confirm(\'Are you sure you want to delete this Team?\');" class="btn ripple btn-secondary btn-sm getAction">
+					<i class="fa fa-trash "></i>
+				  </a>,
+                   <a href="edit_team/' . $row->id . '"  style=""  title="Click to Update Details"  class="btn ripple btn-secondary btn-sm getAction">
+					<i class="ti-pencil-alt"></i>
+				  </a>
+					   </div>';
+
+                $return['data'][] = array(
+                    '<div style="font-weight:900;text-align:center;">' . $i++ . '.</div>',
+                    $row->name,
+                    $row->designation,
+                    $img,
+                    $status,
+                    $view
+                );
+            }
+            $return['recordsTotal'] = $this->leave->team_count();
+            $return['recordsFiltered'] = $this->leave->team_filter_count($post_data);
+            $return['draw'] = $post_data['draw'];
+            echo json_encode($return);
+        } else {
+            $data['title'] = 'Team List';
+            $data['breadcrums'] = 'Team List';
+            $data['target'] = 'admin/website/manage_team/list';
+            $data['layout'] = "admin/website/team_list.php";
+            $this->load->view('adm_base', $data);
+        }
+    }
+
+    public function addTeam()
+    {
+        $data['title'] = 'Add Team';
+        $data['breadcrums'] = 'Add Team';
+        $data['layout'] = "admin/website/add-team.php";
+        $this->load->view('adm_base', $data);
+    }
+
+    public function insert_team()
+    {
+        $img = $this->upload_image('Gallery', 'image');
+        $data = [
+            'name' => $this->input->post('name'),
+            'image' => $img['text'],
+            'designation' => $this->input->post('designation'),
+            'created_at' => date('y-m-d')
+        ];
+
+
+
+
+        $added = $this->db->insert('cms_team', $data);
+        if ($added) {
+            redirect('admin/website/manage_team');
+        }
+    }
+
+
+    public function delete_team($id)
+    {
+
+        if (!empty($id)) {
+            $deleted =  $this->db->where('id', $id)->delete('cms_team');
+            if ($deleted) {
+                redirect('admin/website/manage_team');
+            }
+        }
+    }
+
+    public function edit_team($id)
+    {
+
+        $data['title'] = 'Edit Team';
+        $data['breadcrums'] = 'Edit Team';
+        $data['team_data'] = $this->db->select('*')->from('cms_team')->where('id', $id)->get()->row();
+        $data['layout'] = "admin/website/edit_team.php";
+        $this->load->view('adm_base', $data);
+    }
+
+    public function update_team($id)
+    {
+      
+
+        $get_img = $this->db->select('image')->from('cms_team')->where('id', $id)->get()->row();
+        $get_old_img = $get_img->image;
+
+        if (!empty($_FILES['image']['name'])) {
+
+            // Delete old image
+            if (!empty($old_image) && file_exists(FCPATH . $old_image)) {
+                unlink(FCPATH . $old_image);
+            }
+
+            // Upload new image
+            $upload = $this->upload_image('Gallery', 'image');
+
+            if ($upload['icon'] == 'success') {
+                $data['image'] = $upload['text'];
+            } else {
+                // Upload failed
+                echo $upload['text'];
+                exit;
+            }
+        }
+
+
+        $data['name'] = $this->input->post('name');
+        $data['designation'] = $this->input->post('designation');
+        $updated = $this->db->where('id', $id)->update('cms_team', $data);
+        if ($updated) {
+            redirect('admin/website/manage_team');
+        }
+    }
+
+
+
+
+
+
+    // Teams section end +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 }

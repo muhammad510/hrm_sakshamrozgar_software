@@ -79,3 +79,12 @@ uploads/company/*.gif
 uploads/company/*.webp
 uploads/company/*.svg
 
+
+
+
+uploads/Gallery/*.png
+uploads/Gallery/*.jpg
+uploads/Gallery/*.jpeg
+uploads/Gallery/*.gif
+uploads/Gallery/*.webp
+uploads/Gallery/*.svg

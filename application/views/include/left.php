@@ -85,7 +85,7 @@
 															?>">
                                 	<a class="nav-sub-link  <?php //if($getCurrentLi=='employeemanages'){echo 'active';}
 															?>" href="<?php //echo base_url('admin/employee/manages');
-																																	?>">Employee List</a>
+																		?>">Employee List</a>
                                 </li>-->
   							<li class="nav-sub-item <?php if ($getCurrentLi == 'employeeperformance') {
 															echo 'active';
@@ -227,7 +227,7 @@
 															?>">
                                      <a class="nav-sub-link <?php //if($getCurrentLi=='leavebalance'){echo 'active';}
 															?>" href="<?php //echo base_url('admin/leave/balance');
-																																?>">Leave Balance</a>
+																		?>">Leave Balance</a>
                                 </li>-->
   							<li class="nav-sub-item <?php if ($getCurrentLi == 'leavereport') {
 															echo 'active';
@@ -397,6 +397,17 @@
   										</a>
   									</li>
 
+
+  									<li class="nav-sub-item <?php if ($getCurrentLi == 'ledgerexpense') {
+																	echo 'active';
+																} ?>">
+  										<a class="nav-sub-link <?php if ($getCurrentLi == 'ledgerexpense') {
+																		echo 'active';
+																	} ?>" href="<?php echo base_url('admin/website/manage_team'); ?>">Our Teams
+  										</a>
+  									</li>
+
+
   								</ul>
   							</li>
 
@@ -515,7 +526,7 @@
 																?>">
 									<a class="nav-sub-link <?php //if($getCurrentLi=='rolesindex'){echo'active';}
 															?>" href="<?php //echo base_url('software/roles');
-																															?>">
+																		?>">
 										Roles
 									</a>
 								</li>
@@ -523,7 +534,7 @@
 															?>">
 									<a class="nav-sub-link <?php //if($getCurrentLi=='documentsindex'){echo'active';}
 															?>" href="<?php //echo base_url('software/documents');
-																																?>">
+																		?>">
 										Official Documents
 									</a>
 								</li>-->
@@ -533,7 +544,7 @@
 													?>">
 							<a class="nav-link <?php //if($getCurrentLi=='testingModeindex'){echo 'active';}
 												?>" href="<?php //echo base_url('admin/testingMode');
-																														?>">
+															?>">
 								<span class="shape1"></span>
 								<span class="shape2"></span>
 								<i class="ti-home sidemenu-icon menu-icon"></i>
@@ -603,7 +614,7 @@
 															?>">
                                 <a class="nav-sub-link <?php //if($getCurrentLi=='ticketsarise'){echo 'active';}
 														?>" href="<?php //echo base_url('tickets/arise');
-																															?>">
+																	?>">
                                     Create Tickets
                                 </a>
                             </li>-->
