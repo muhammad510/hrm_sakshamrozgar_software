@@ -196,7 +196,7 @@ class Employee extends CI_Controller
 			$where = json_decode(base64_decode(urldecode($where)));
 			if ($where->action == 'editDetails') {
 				$employee = $this->staff->getEmployeeDetails($where->id);
-			
+
 				if ($employee->salary_id != '0') {
 
 					$values = 'id,gross_sal_amt as grSal,basic_sal as basic_pay,hraAmt,taAmt,daAmt,paAmt,ROUND((basic_sal*100)/gross_sal_amt,2) as basic_percent,hraAmt,ROUND((hraAmt*100)/gross_sal_amt,2) as hra_percent,taAmt,ROUND((taAmt*100)/gross_sal_amt,2) as ta_percent, daAmt,ROUND((daAmt*100)/gross_sal_amt,2) as da_percent,paAmt,ROUND((paAmt*100)/gross_sal_amt,2) as pa_percent,bonus,medical as mediAmt,ROUND((medical*100)/gross_sal_amt,2) as medical_percent,insentive,otherInc as  other_deduction ,ROUND((pfAmt*100)/basic_sal,2) as pf_percent,esicEmpAmt,esicEmplyrAmt as esicEmpLyrAmt,pfAmt,advance as advance_amt,tdsAmt,ROUND((tdsAmt*100)/gross_sal_amt,2) as tds_percent,insurance as insurance_amt,net_payble as net_payble_amt,
@@ -249,7 +249,7 @@ class Employee extends CI_Controller
 				} else {
 					$approved_leave = 'No leave Available';
 				}
-				$data['blood_group'] = $this->db_model->select_all('blood_group','*');
+				$data['blood_group'] = $this->db_model->select_all('blood_group', '*');
 				$data['approved_leave'] = $approved_leave;
 				$data['employee'] = $employee;
 				$data['avrActionTarget'] = base_url('staff/profile/reset_password');
@@ -895,15 +895,22 @@ class Employee extends CI_Controller
 
 	public function profile_image($id)
 	{
+
 		$getImgFl = $this->input->post('file');
 		$image_filename = NULL;
 		$config = array('upload_path' => "uploads/employee/", 'allowed_types' => "jpg|png|jpeg|JPEG|JPG", 'overwrite' => FALSE, 'encrypt_name' => TRUE, 'max_size' => "10120000");
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
-		if ($this->upload->do_upload('file')) {
+
+		if ($this->upload->do_upload('image')) {
 			$image['image_upload'] = array('upload_data' => $this->upload->data()); //Image Upload
 			$image_filename = $image['image_upload']['upload_data']['file_name']; //Image Name
+		} else {
+			echo $this->upload->display_errors();
+			die;
 		}
+		
+
 		if ($image_filename) {
 			$config = NULL;
 			$config['image_library'] = 'gd2';
