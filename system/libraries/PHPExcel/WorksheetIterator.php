@@ -32,14 +32,14 @@ class PHPExcel_WorksheetIterator implements Iterator
      *
      * @var PHPExcel
      */
-    private $subject;
+    private $_subject;
 
     /**
      * Current iterator position
      *
      * @var int
      */
-    private $position = 0;
+    private $_position = 0;
 
     /**
      * Create a new worksheet iterator
@@ -49,7 +49,7 @@ class PHPExcel_WorksheetIterator implements Iterator
     public function __construct(PHPExcel $subject = null)
     {
         // Set subject
-        $this->subject = $subject;
+        $this->_subject = $subject;
     }
 
     /**
@@ -57,15 +57,16 @@ class PHPExcel_WorksheetIterator implements Iterator
      */
     public function __destruct()
     {
-        unset($this->subject);
+        unset($this->_subject);
     }
 
     /**
      * Rewind iterator
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
-        $this->position = 0;
+        $this->_position = 0;
     }
 
     /**
@@ -73,9 +74,10 @@ class PHPExcel_WorksheetIterator implements Iterator
      *
      * @return PHPExcel_Worksheet
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
-        return $this->subject->getSheet($this->position);
+        return $this->_subject->getSheet($this->_position);
     }
 
     /**
@@ -83,17 +85,19 @@ class PHPExcel_WorksheetIterator implements Iterator
      *
      * @return int
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
-        return $this->position;
+        return $this->_position;
     }
 
     /**
      * Next value
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
-        ++$this->position;
+        ++$this->_position;
     }
 
     /**
@@ -101,8 +105,9 @@ class PHPExcel_WorksheetIterator implements Iterator
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
-        return $this->position < $this->subject->getSheetCount();
+        return $this->_position < $this->_subject->getSheetCount();
     }
 }

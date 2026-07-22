@@ -36,8 +36,6 @@ class Report extends CI_Controller
 
 	public function download($where)
 	{
-
-
 		$where = json_decode(base64_decode(urldecode($where)));
 
 		if ($where->actn == 'excelExport') {
@@ -65,28 +63,21 @@ class Report extends CI_Controller
 				  SUM(CASE WHEN sf.staff_attendance_type_id = '1' THEN 1 ELSE 0 END) AS total_present,SUM(CASE WHEN sf.staff_attendance_type_id = '5' THEN 1 ELSE 0 END) AS total_half,
 				  SUM(CASE WHEN sf.staff_attendance_type_id = '3' THEN 1 ELSE 0 END) AS total_absent");
 
-
-
 			$whereCon = array('searchDt' => $searchDt, 'frmDate' => $frmDate, 'lastDate' => $lastDate);
 			$getRecord = $this->common->createMonhtlyReport($whereCon); //echo $this->db->last_query().
 
 
 
+
+
 			require_once('system/libraries/PHPExcel.php');
 			require_once('system/libraries/PHPExcel/IOFactory.php');
-
-
-			$objPHPExcel = new PHPExcel();
-
-
-
+			$objPHPExcel = new PHPExcel(); //creating Object of Excel
 
 			$objPHPExcel->getProperties()->setCreator("Your Name")->setLastModifiedBy("Your Name")->setTitle("Excel Export")->setSubject("Excel Export")->setDescription("Generated Excel file.");
 
 			$column = 'A';
 			$row = 1;
-
-
 
 			foreach ($headers as $index => $header) {
 				$objPHPExcel->getActiveSheet()
@@ -95,18 +86,19 @@ class Report extends CI_Controller
 			}
 
 
-
 			$row = 2;
+
 			foreach ($getRecord as $data_row) {
 				$column = 'A';
+				$data_row = (array)$data_row;
+
 				foreach ($data_row as $value) {
-					$objPHPExcel->setActiveSheetIndex(0)->setCellValue($column . $row, $value);
+					$objPHPExcel->getActiveSheet()->setCellValue($column . $row, $value);
 					$column++;
 				}
+
 				$row++;
 			}
-
-
 
 			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 			header('Content-Disposition: attachment;filename="' . $file_name . '-attendance-report.xlsx"');
@@ -118,8 +110,6 @@ class Report extends CI_Controller
 			$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 			$objWriter->save('php://output');
 			exit;
-			/*$return=array('addClas'=>'tst_success','msg'=>array('Thank you! You have successfully find details'),'icon'=>'<i class="ti-check-box"></i>');
-		print_r($return);*/
 		} else if ($where->actn == 'pdfExport') {
 			$file_name = $where->fromDate ? date('F-Y', strtotime(str_replace("/", "-", $where->fromDate))) : date('F-Y');
 			$frmDate = $where->fromDate ? date('Y-m-d', strtotime(str_replace("/", "-", $where->fromDate)/*.' -1 day'*/)) : date('Y-m-01');

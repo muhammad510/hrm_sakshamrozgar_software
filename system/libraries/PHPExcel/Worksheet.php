@@ -1081,7 +1081,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
      * @param bool $returnCell   Return the worksheet (false, default) or the cell (true)
      * @return PHPExcel_Worksheet|PHPExcel_Cell    Depending on the last parameter being specified
      */
-    public function setCellValue($pCoordinate, $pValue = null)
+    public function setCellValue($pCoordinate, $pValue = null, $returnCell = false)
     {
         $cell = $this->getCell(strtoupper($pCoordinate))->setValue($pValue);
         return ($returnCell) ? $cell : $this;
