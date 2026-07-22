@@ -17,13 +17,15 @@ class Report extends CI_Controller
 	{
 
 		$post = $this->input->post();
+
 		if (($post['action'] == 'excelExport') || ($post['action'] == 'pdfExport')) {
 			$frmDate = $post['fromDate'] ? date('Y-m-d', strtotime(str_replace("/", "-", $post['fromDate']))) : date('Y-m-01');
 			$lastDate = $post['toDate'] ? date('Y-m-d', strtotime(str_replace("/", "-", $post['toDate']))) : date('Y-m-t');
+			$eId = $post['id'] ? $post['id'] : '';
 			$whereCon = array('attendance_date >=' => $frmDate, 'attendance_date <=' => $lastDate);
 			$getData = $this->common->get_data('staff_attendance', $whereCon, '*');
 			if ($getData) {
-				$downlink = base_url('admin/report/download/' . urlencode(base64_encode(json_encode(array('fromDate' => $post['fromDate'], 'toDate' => $post['toDate'], 'aPage' => $post['activePage'], 'actn' => $post['action'])))));
+				$downlink = base_url('admin/report/download/' . urlencode(base64_encode(json_encode(array('fromDate' => $post['fromDate'], 'toDate' => $post['toDate'], 'id' => $eId, 'aPage' => $post['activePage'], 'actn' => $post['action'])))));
 				$return = array('addClas' => 'tst_success', 'msg' => array('Thank you! You have successfully find details'), 'icon' => '<i class="ti-check-box"></i>', 'downlink' => $downlink);
 			} else {
 				$return = array('addClas' => 'tst_warning', 'msg' => array(' Unfortunately, there are no records available.'), 'icon' => '<i class="fe fe-settings bx-spin"></i>');
@@ -38,9 +40,16 @@ class Report extends CI_Controller
 	{
 		$where = json_decode(base64_decode(urldecode($where)));
 
+
+		// echo "<pre>";
+		// print_r($where);
+		// die;
+
 		if ($where->actn == 'excelExport') {
 			$file_name = $where->fromDate ? date('F-Y', strtotime(str_replace("/", "-", $where->fromDate))) : date('F-Y');
+
 			$frmDate = $where->fromDate ? date('Y-m-d', strtotime(str_replace("/", "-", $where->fromDate) . ' -1 day')) : date('Y-m-01');
+			$eId = $where->id ? $where->id : '';
 			$lastDate = $where->toDate ? date('Y-m-d', strtotime(str_replace("/", "-", $where->toDate))) : date('Y-m-t');
 			$fromTimestamp = strtotime($frmDate);
 			$toTimestamp = strtotime($lastDate);
@@ -63,10 +72,12 @@ class Report extends CI_Controller
 				  SUM(CASE WHEN sf.staff_attendance_type_id = '1' THEN 1 ELSE 0 END) AS total_present,SUM(CASE WHEN sf.staff_attendance_type_id = '5' THEN 1 ELSE 0 END) AS total_half,
 				  SUM(CASE WHEN sf.staff_attendance_type_id = '3' THEN 1 ELSE 0 END) AS total_absent");
 
-			$whereCon = array('searchDt' => $searchDt, 'frmDate' => $frmDate, 'lastDate' => $lastDate);
-			$getRecord = $this->common->createMonhtlyReport($whereCon); //echo $this->db->last_query().
 
 
+			$whereCon = array('searchDt' => $searchDt, 'frmDate' => $frmDate, 'lastDate' => $lastDate, 'id' => $eId);
+
+			$getRecord = $this->common->createMonhtlyReport($whereCon);
+			// echo $this->db->last_query();
 
 
 

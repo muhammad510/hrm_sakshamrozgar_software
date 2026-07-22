@@ -451,21 +451,21 @@
           <span id="ovrOfEmpByMonth"><?php echo $attMonthwise; ?></span>
           <form method="post" id="searchAttendance">
             <div class="row row-sm">
-              <div class="col-sm-4"><label class="">Employee Name/ID:</label>
-                <input type="text" id="fieldSrchIDorName" name="fieldSrchIDorName" class="form-control miKeyUp" placeholder="Employee Name Or ID" />
+              <div class="col-sm-4"><label class="">Employee ID:</label>
+                <input type="text" id="fieldSrchIDorName" name="fieldSrchIDorName" class="form-control miKeyUp clear-input-box" placeholder="Employee ID" />
                 <div class="mSrchPnl">
                   <ul></ul>
                 </div>
               </div>
-              <div class="col-sm-3"><label class="">From Date:</label><input type="text" id="fromDate" name="fromDate" class="form-control fc-datepicker" placeholder="DD/MM/YYYY" /></div>
-              <div class="col-sm-3"><label class="">To Date:</label><input type="text" id="toDate" name="toDate" class="form-control fc-datepicker" placeholder="DD/MM/YYYY" /></div>
+              <div class="col-sm-3"><label class="">From Date:</label><input type="text" id="fromDate" name="fromDate" class="form-control clear-input-box fc-datepicker" placeholder="DD/MM/YYYY" /></div>
+              <div class="col-sm-3"><label class="">To Date:</label><input type="text" id="toDate" name="toDate" class="form-control clear-input-box fc-datepicker" placeholder="DD/MM/YYYY" /></div>
               <div class="col-sm-2">
                 <div style="padding-top: 1.8rem;">
                   <button class="btn ripple btn-outline-success getAction mSch" id="searchDetails" type="submit" data-id="<?php echo $attMonthwise; ?>" onclick="return searchAttendance(reportAttendance,'#searchAttendance','#getReportMiDetails')">
                     <i class="ti-search"></i> Search
                   </button>
                   <!---->
-                  <button type="button" class="btn ripple btn-outline-danger getAction" data-id="clearDetails"><i class="ti-trash"></i></button>
+                  <button type="button" id="clearDetails" class="btn ripple btn-outline-danger getAction" data-id="clearDetails"><i class="ti-trash"></i></button>
                 </div>
               </div>
             </div>
@@ -571,12 +571,14 @@
           });
         } else if ((actNbtn == 'excelExport') || (actNbtn == 'pdfExport')) {
           let getData = $(this).attr('data-id');
+
           let target = getData.split('===');
           var activePage = $('.pagination .active a').text();
-         
+
           $.post($('#base_url').val() + target[1], {
             action: target[0],
             fromDate: $('#fromDate').val(),
+            id: $('#fieldSrchIDorName').val(),
             toDate: $('#toDate').val(),
             activePage: activePage
           }, function(htmlAmi) {
@@ -601,11 +603,6 @@
 
 
 
-
-
-
-
-
     function searchAttendance(tbactn, frmId, tbstorage) {
       $(frmId).unbind("click").submit(function(e) {
         e.preventDefault();
@@ -619,4 +616,15 @@
       });
 
     }
+
+
+
+
+    const clearBtn = document.getElementById('clearDetails');
+    clearBtn.addEventListener("click", function() {
+      const allInputs = document.querySelectorAll('.clear-input-box');
+      allInputs.forEach(singleInput => {
+        singleInput.value = "";
+      })
+    })
   </script>
