@@ -909,7 +909,7 @@ class Employee extends CI_Controller
 			echo $this->upload->display_errors();
 			die;
 		}
-		
+
 
 		if ($image_filename) {
 			$config = NULL;

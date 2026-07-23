@@ -417,6 +417,7 @@
     $blood = $employee->blood_group ?? 'N/A';
     $phone = $employee->contact_no ?? '—';
     $email = $employee->email ?? '—';
+    $date_of_joining = $employee->date_of_joining ?? 'N/A';
 
     $emergencyName = $employee->emergency_name ?? system_info('company_name');
     $emergencyPhone = $employee->emergency_phone ?? $companyPhone;
@@ -463,6 +464,10 @@
             <div class="detail-row">
                 <span class="label">Email</span>
                 <span class="value" style="font-size:11px;"><?= htmlspecialchars($email) ?></span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Join Date</span>
+                <span class="value" style="font-size:11px;"><?= htmlspecialchars($date_of_joining) ?></span>
             </div>
         </div>
 

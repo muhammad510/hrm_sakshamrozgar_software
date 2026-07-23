@@ -25,7 +25,7 @@ class Common extends CI_Controller
 
     function idcard($employee_id)
     {
-        $this->db->select('s.*,d.department_name as department,de.designation_name as designation,blood.name as blood_group')->from('staff as s')->where('s.employee_id', $employee_id);
+        $this->db->select('s.*,d.department_name as department,de.designation_name as designation,blood.name as blood_group, s.date_of_joining')->from('staff as s')->where('s.employee_id', $employee_id);
         $this->db->join('department as d', 'd.id=s.department');
         $this->db->join('designation as de', 'de.id=s.designation');
         $this->db->join('blood_group as blood', 'blood.id=s.blood_group_id',"left");
