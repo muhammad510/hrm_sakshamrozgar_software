@@ -107,13 +107,13 @@
         .auth-card {
             position: relative;
             z-index: 1;
-            width: 50%;
+            width: 75%;
             max-width: 1120px;
             background: rgba(255, 255, 255, 0.80);
             backdrop-filter: blur(24px) saturate(1.4);
             -webkit-backdrop-filter: blur(24px) saturate(1.4);
             border: 1px solid rgba(255, 255, 255, 0.60);
-            border-radius: 32px;
+            border-radius: 12px;
             box-shadow: 0 30px 80px -20px rgba(37, 99, 235, 0.15),
                 0 8px 32px -8px rgba(0, 0, 0, 0.04),
                 inset 0 1px 0 rgba(255, 255, 255, 0.70);
@@ -365,6 +365,11 @@
         /* ── HEADINGS ── */
         .form-heading {
             margin-bottom: 6px;
+        }
+
+
+        .form-heading p{
+            margin-bottom: 25px;
         }
 
         .form-heading h3 {
@@ -902,7 +907,7 @@
                 <div id="login_panel" class="panel-fade visible-panel">
                     <div class="form-heading">
                         <h3>Sign in</h3>
-                        <p>Enter your credentials to access your account.</p>
+                        <p class="">Enter your credentials to access your account.</p>
                     </div>
                     <form autocomplete="off" novalidate>
                         <div class="input-group">
@@ -972,7 +977,7 @@
                     <h5 id="actnAmiMark">Welcome Back</h5>
                     <p class="quote">"Discipline is the bridge between goals and accomplishment."</p>
                 </div>
-                <div class="status">
+                <div class="status d-flex justify-content-center">
                     <span class="dot"></span>
                     Secure · Encrypted
                 </div>
