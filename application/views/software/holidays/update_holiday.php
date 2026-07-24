@@ -12,14 +12,27 @@
     </div>
     <div class="col-6">
         <span id="holidyDte" class="regiErr">SoftArena</span>
-        <label>Holiday Date:<span class="text-danger">*</span></label>
+        <label>From Date:<span class="text-danger">*</span></label>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-clock"></i></span>
             </div>
-            <input type="date" class="form-control fc-datepicker" name="holiday_date" id="holiday_date" value="<?php echo $update_holiday['holiday_date'] ?>">
+            <input type="date" class="form-control fc-datepicker" name="from_date" id="from_date" value="<?php echo $update_holiday['from_date'] ?>">
         </div>
     </div>
+
+    <div class="col-6">
+        <span id="holidyDte" class="regiErr">SoftArena</span>
+        <label>To Date:<span class="text-danger">*</span></label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-clock"></i></span>
+            </div>
+            <input type="date" class="form-control fc-datepicker" name="to_date" id="to_date" value="<?php echo $update_holiday['to_date'] ?>">
+        </div>
+    </div>
+
+
     <div class="col-12">
         <label>Description : </label>
         <div class="input-group mb-3">

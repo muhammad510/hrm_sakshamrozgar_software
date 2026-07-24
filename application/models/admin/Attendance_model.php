@@ -114,20 +114,41 @@ class Attendance_model extends CI_Model
 
 	public function getHolidaysListInMonth($startDate = NULL, $endDate = NULL)
 	{
-		return $this->db->select('id,holiday_date')->where('holiday_date >=', $startDate)->where('holiday_date <=', $endDate)->where('status', '1')->get('holidays')->result();
+		return $this->db
+			->select('id, from_date, to_date')
+			->from('holidays')
+			->where('from_date >=', $startDate)
+			->where('to_date <=', $endDate)
+			->where('status', '1')
+			->get()
+			->result();
 	}
+
+
 	public function isHolidaysListInMonth($startDate = NULL, $endDate = NULL)
 	{
 		return $this->db->select('id,holiday_id,attendance_date')->where('attendance_date >=', $startDate)->where('attendance_date <=', $endDate)->where('holiday_id !=', 'NULL')->group_by('holiday_id')->get('staff_attendance')->result();
 	}
 	public function getHolidaysDataInMonth($today)
 	{
-		return $this->db->select('id,holiday_date')->where('holiday_date', $today)->where('status', '1')->get('holidays')->result();
+		return $this->db
+			->select('id, from_date, to_date')
+			->where('from_date <=', $today)
+			->where('to_date >=', $today)
+			->where('status', '1')
+			->get('holidays')
+			->result();
 	}
 
 	public function isHolidaysDataSetInMonth($today)
 	{
-		return $this->db->select('holiday_id,attendance_date')->where('attendance_date', $today)->where('holiday_id !=', NULL)->group_by('holiday_id')->get('staff_attendance')->result();
+		return $this->db
+			->select('holiday_id,attendance_date')
+			->where('attendance_date', $today)
+			->where('holiday_id !=', NULL)
+			->group_by('holiday_id')
+			->get('staff_attendance')
+			->result();
 	}
 
 	public function getEmployeeWithShift()
@@ -325,11 +346,26 @@ class Attendance_model extends CI_Model
 	{
 		$return = array();
 		$num_sundays = '';
+
 		$isPresent = $this->db->select('count(id) as p')->from('staff_attendance')->where('staff_attendance_type_id', '1')->where('employee_id', $where['id'])->where('attendance_date >=', $where['strtDt'])->where('attendance_date <=', $where['endDt'])->get()->row();
+
 		$isLate = $this->db->select('count(id) as l')->from('staff_attendance')->where('staff_attendance_type_id', '2')->where('employee_id', $where['id'])->where('attendance_date >=', $where['strtDt'])->where('attendance_date <=', $where['endDt'])->get()->row();
+
 		$isHfDy = $this->db->select('count(id) as hf')->from('staff_attendance')->where('staff_attendance_type_id', '5')->where('employee_id', $where['id'])->where('attendance_date >=', $where['strtDt'])->where('attendance_date <=', $where['endDt'])->get()->row();
+
 		$isAbsent = $this->db->select('count(id) as ab')->from('staff_attendance')->where('staff_attendance_type_id', '3')->where('employee_id', $where['id'])->where('attendance_date >=', $where['strtDt'])->where('attendance_date <=', $where['endDt'])->get()->row();
-		$byCompanyLeave = $this->db->select('count(id) as byCmpnyLv')->from('holidays')->where('status', '1')->where('holiday_date >=', $where['strtDt'])->where('holiday_date <=', $where['endDt'])->where('DAYOFWEEK(holiday_date) !=', '1')->get()->row();
+
+		$byCompanyLeave = $this->db
+			->select('COUNT(id) AS byCmpnyLv')
+			->from('holidays')
+			->where('status', '1')
+			->where('from_date >=', $where['strtDt'])
+			->where('from_date <=', $where['endDt'])
+			->where('DAYOFWEEK(from_date) !=', 1) // Exclude Sundays
+			->get()
+			->row();
+
+
 		for ($i = 0; $i < ((strtotime($where['endDt']) - strtotime($where['strtDt'])) / 86400); $i++) {
 			if (date('l', strtotime($where['strtDt']) + ($i * 86400)) == 'Sunday') {
 				$num_sundays++;

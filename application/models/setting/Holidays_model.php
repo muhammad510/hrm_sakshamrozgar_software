@@ -15,7 +15,7 @@
         public function holiday_query($where = false)
         {
             
-            $field = array('id', 'holiday_name', 'holiday_date','description', 'status');
+            $field = array('id', 'holiday_name', 'from_date','to_date','description', 'status');
             $i = 0;
             foreach ($field as $item) {
 
@@ -33,7 +33,7 @@
                 $i++;
 
             }
-            $this->db->select('id, holiday_name, holiday_date, description, status')->from('holidays');
+            $this->db->select('id, holiday_name, from_date,to_date, description, status')->from('holidays');
             
             if (isset($where['order']) && !empty($where['order'])) {
                 $this->db->order_by($field[$where['order']['0']['column']], $where['order']['0']['dir']);
