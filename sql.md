@@ -41,4 +41,6 @@ COMMIT;
 
 ALTER TABLE `staff` ADD `blood_group_id` INT(11) NULL AFTER `dob`;
 
+ALTER TABLE staff ADD biomateric_image VARCHAR(100) NOT NULL AFTER image;
+
 <!-- create table cms_gallery -->
