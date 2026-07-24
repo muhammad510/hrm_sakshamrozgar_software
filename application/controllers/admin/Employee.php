@@ -746,10 +746,18 @@ class Employee extends CI_Controller
 						'icon' => '<i class="ti-check-box"></i>'
 					);
 				} else {
-					$return = array('addClas' => 'tst_danger', 'msg' => array("Details not available for this ID #" . $post), 'icon' => '<i class="fe fe-sun bx-spin"></i>');
+					$return = array(
+						'addClas' => 'tst_danger',
+						'msg' => array("Details not available for this ID #" . $post),
+						'icon' => '<i class="fe fe-sun bx-spin"></i>'
+					);
 				}
 			} else {
-				$return = array('addClas' => 'tst_danger', 'msg' => array("Please input employee id to get details."), 'icon' => '<i class="fe fe-sun bx-spin"></i>');
+				$return = array(
+					'addClas' => 'tst_danger',
+					'msg' => array("Please input employee id to get details."),
+					'icon' => '<i class="fe fe-sun bx-spin"></i>'
+				);
 			}
 			echo json_encode($return);
 		} else if ($actn == 'offer_letter') {
@@ -880,7 +888,7 @@ class Employee extends CI_Controller
 			}
 			echo json_encode($return);
 		} else {
-			$getCompanySt = $this->common->state_district(csystem_info('district'));
+			$getCompanySt = $this->common->state_district(system_info('district'));
 			$data = array(
 				'title' => 'Employee Form 16 generate',
 				'breadcrums' => 'Employee Form 16 generate',
